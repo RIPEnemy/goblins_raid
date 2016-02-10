@@ -8,35 +8,6 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="0" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>type = "controller"
-
-ini_open("glRes");
-{
-    status = ini_read_real("Option",object_get_name(id),0);
-}
-ini_close();
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
@@ -54,14 +25,7 @@ ini_close();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if status = 0
-{
-    draw_sprite(menuBtnSpr,0,x,y);
-}
-else
-{
-    draw_sprite(menuBtnSpr,1,x,y);
-}
+            <string>//drawText(CambriaBold30,make_colour_rgb
 </string>
           </argument>
         </arguments>

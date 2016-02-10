@@ -57,7 +57,7 @@
     <option_android_portrait_splash_png>Configs\Default\android\portrait_splash.png</option_android_portrait_splash_png>
     <option_android_push_enable>0</option_android_push_enable>
     <option_android_push_id></option_android_push_id>
-    <option_android_scale>-1</option_android_scale>
+    <option_android_scale>0</option_android_scale>
     <option_android_set_device_id></option_android_set_device_id>
     <option_android_splash_png>Configs\Default\android\splash.png</option_android_splash_png>
     <option_android_target_sdk_version>16</option_android_target_sdk_version>
@@ -211,10 +211,10 @@
     <option_mac_menu_dock>0</option_mac_menu_dock>
     <option_mac_minor_version>0</option_mac_minor_version>
     <option_mac_output_dir>~/GameMaker-Studio/Goblins Raid</option_mac_output_dir>
-    <option_mac_scale>-1</option_mac_scale>
+    <option_mac_scale>0</option_mac_scale>
     <option_mac_screenkey>-1</option_mac_screenkey>
     <option_mac_showcursor>-1</option_mac_showcursor>
-    <option_mac_sizeable>0</option_mac_sizeable>
+    <option_mac_sizeable>-1</option_mac_sizeable>
     <option_mac_splash_png>Configs\Default\mac\splash.png</option_mac_splash_png>
     <option_mac_steam_app_id>0</option_mac_steam_app_id>
     <option_mac_sync>0</option_mac_sync>

@@ -41,19 +41,32 @@
   </datafiles>
   <NewExtensions/>
   <sounds name="sound"/>
-  <sprites name="sprites"/>
-  <backgrounds name="background"/>
+  <sprites name="sprites">
+    <sprite>sprites\menuBtnSpr</sprite>
+    <sprite>sprites\menuArwSpr</sprite>
+    <sprite>sprites\menuLogoSpr</sprite>
+  </sprites>
+  <backgrounds name="background">
+    <background>background\menuBG</background>
+  </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\drawText.gml</script>
+    <script>scripts\destroyAllInst.gml</script>
   </scripts>
+  <fonts name="fonts">
+    <font>fonts\CambriaBold30</font>
+  </fonts>
   <objects name="objects">
     <objects name="Controllers">
       <object>objects\globalController</object>
       <object>objects\mainMenuController</object>
     </objects>
     <objects name="Menu">
+      <object>objects\playBtnObj</object>
       <object>objects\buttonParent</object>
+      <object>objects\musicBtnObj</object>
+      <object>objects\soundBtnObj</object>
     </objects>
   </objects>
   <rooms name="rooms">
