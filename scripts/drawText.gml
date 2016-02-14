@@ -6,7 +6,6 @@ draw_set_valign(argument3);
 
 ini_open("loc.ini");
 {
-    key = argument6;
-    draw_text(argument4,argument5,ini_read_real(global.lang,key,"LOC_NOT_FOUND"));
+    draw_text(argument4,argument5,ini_read_string(global.lang,argument6,"LOC_NOT_FOUND"));
 }
 ini_close();

@@ -26,43 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>type = "controller";
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="7" enumb="4">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if global.os = os_windows || global.os = os_win8native || global.os = os_macosx
-{
-    window_set_size(960,640);
-    room_set_width(room,960);
-    room_set_height(room,640);
-    room_set_view(room,0,true,0,0,960,640,0,0,960,640,0,0,0,0,-1);
-}
-else
-{
-    screenW = display_get_width();
-    screenH = display_get_height();
-    room_set_width(room,screenW);
-    room_set_height(room,screenH);
-    room_set_view(room,0,true,0,0,screenW,screenH,0,0,screenW,screenH,0,0,0,0,-1); 
-}
+
+instance_create(room_width / 2, room_height / 2, camObj);
 </string>
           </argument>
         </arguments>
@@ -111,11 +76,13 @@ else
 ini_open("glRes.ini");
 {
     global.gold = ini_read_real("Res","gold",0);
-    global.lastResoult = ini_read_real("Res","lastResoult",0);
-    global.topResoult = ini_read_real("Res","topResoult",0)
+    global.lastScore = ini_read_real("Res","lastScore",0);
+    global.topScore = ini_read_real("Res","topScore",0)
     global.archerLvl = ini_read_real("Char","archerLvl",1);
     global.mageLvl = ini_read_real("Char","mageLvl",1);
     global.builderLvl = ini_read_real("Char","builderLvl",1); 
+    global.soundStatus = ini_read_real("Option","sound",0);
+    global.musicStatus = ini_read_real("Option","music",0);
 }
 ini_close();
 

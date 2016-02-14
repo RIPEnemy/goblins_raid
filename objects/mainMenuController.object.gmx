@@ -25,41 +25,33 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>type = "controller"
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="7" enumb="4">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>musicButton = instance_create(room_width - 120, room_height - 120,musicBtnObj);
-soundButton = instance_create(musicButton.x - 120, musicButton.y,soundBtnObj);
-playButton = instance_create(room_width / 2 + 50, room_height / 2 + 50,playBtnObj);
+            <string>type = "controller";
+
+colBrown = make_colour_rgb(71,15,15);
+colScore = make_colour_rgb(210,108,41);
+colDBlue = make_colour_rgb(27,34,63)
+txtX = view_wview[0];
+txtY = view_hview[0];
+
+musicButton = instance_create(txtX - 150,txtY - 200,musicBtnObj);
+soundButton = instance_create(musicButton.x - 100, musicButton.y,soundBtnObj);
+playButton = instance_create(txtX / 2, txtY / 2 + 50,playBtnObj);
 
 musicButton.type = "button";
 soundButton.type = "button";
+playButton.type = "button";
+musicButton.viewX = txtX - 150;
+musicButton.viewY = txtY - 200;
+soundButton.viewX = musicButton.viewX - 100;
+soundButton.viewY = musicButton;
+playButton.viewX = txtX / 2;
+playButton.viewY = txtY / 2 + 50;
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="0">
+    <event eventtype="8" enumb="64">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -76,7 +68,23 @@ soundButton.type = "button";
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_sprite(menuLogoSpr,0,room_width / 2, room_height / 2 - 200);
+            <string>//sprites
+draw_sprite(menuLogoSpr,0,view_wview[0] / 2 - 30,view_hview[0] / 2 - 150);
+draw_sprite(soundSpr,0,soundBtnObj.x,soundBtnObj.y);
+draw_sprite(musicSpr,0,musicBtnObj.x,musicBtnObj.y);
+draw_sprite(menuArwSpr,0,playBtnObj.x - 110,playBtnObj.y);
+
+//score
+//ini с локализациями должен быть строго в кодировке UTF-8!
+drawText(CambriaBold40,colBrown,fa_left,fa_center,txtX / 2 - 100,txtY / 2 + 50,"play");
+
+drawText(CambriaBold22,colDBlue,fa_left,fa_center,txtX - (txtX - 52),txtY - (txtY - 55),"lastScoreTxt");
+drawString(CambriaBold22,colScore,fa_center,fa_center,txtX - (txtX - 155),txtY - (txtY - 90),global.lastScore);
+
+drawText(CambriaBold22,colDBlue,fa_right,fa_center,txtX - 122,txtY - (txtY - 55),"topScoreTxt");
+drawString(CambriaBold22,colScore,fa_center,fa_center,txtX - 225,txtY - (txtY - 90),global.topScore);
+
+drawText(CambriaBold14,colDBlue,fa_center,fa_center,txtX / 2 - 20,txtY - 150,"copyright");
 </string>
           </argument>
         </arguments>

@@ -45,30 +45,45 @@
     <sprite>sprites\menuBtnSpr</sprite>
     <sprite>sprites\menuArwSpr</sprite>
     <sprite>sprites\menuLogoSpr</sprite>
+    <sprite>sprites\soundSpr</sprite>
+    <sprite>sprites\musicSpr</sprite>
+    <sprites name="empty_btns">
+      <sprite>sprites\playBtnSpr_empty</sprite>
+      <sprite>sprites\menuBtnSpr_empty</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\menuBG</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
-    <script>scripts\drawText.gml</script>
     <script>scripts\destroyAllInst.gml</script>
+    <script>scripts\roomPort.gml</script>
+    <scripts name="draw">
+      <script>scripts\drawText.gml</script>
+      <script>scripts\drawString.gml</script>
+    </scripts>
+    <script>scripts\changeStatus.gml</script>
   </scripts>
   <fonts name="fonts">
-    <font>fonts\CambriaBold30</font>
+    <font>fonts\CambriaBold40</font>
+    <font>fonts\CambriaBold22</font>
+    <font>fonts\CambriaBold14</font>
   </fonts>
   <objects name="objects">
     <objects name="Controllers">
       <object>objects\globalController</object>
       <object>objects\mainMenuController</object>
+      <object>objects\camObj</object>
     </objects>
     <objects name="Menu">
-      <object>objects\playBtnObj</object>
       <object>objects\buttonParent</object>
+      <object>objects\playBtnObj</object>
       <object>objects\musicBtnObj</object>
       <object>objects\soundBtnObj</object>
     </objects>
   </objects>
+  <timelines name="timelines"/>
   <rooms name="rooms">
     <room>rooms\start_room</room>
     <room>rooms\mainMenu_room</room>
