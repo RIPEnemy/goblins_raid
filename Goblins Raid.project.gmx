@@ -54,6 +54,7 @@
   </sprites>
   <backgrounds name="background">
     <background>background\menuBG</background>
+    <background>background\grassBG_1</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -83,7 +84,6 @@
       <object>objects\soundBtnObj</object>
     </objects>
   </objects>
-  <timelines name="timelines"/>
   <rooms name="rooms">
     <room>rooms\start_room</room>
     <room>rooms\mainMenu_room</room>

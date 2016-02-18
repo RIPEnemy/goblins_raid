@@ -26,6 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>roomPort();
+gold
 </string>
           </argument>
         </arguments>

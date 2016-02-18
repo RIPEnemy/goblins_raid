@@ -10,5 +10,5 @@ else
 {
     screenW = display_get_width();
     screenH = display_get_height();
-    room_set_view(room,0,true,0,0,screenW,screenH,0,0,screenW,screenH,0,0,0,0,camObj); 
+    room_set_view(room,0,true,0,0,camObj.x - (screenW / 2),camObj.y - (screenH / 2),0,0,screenW,screenH,0,0,0,0,camObj);
 }

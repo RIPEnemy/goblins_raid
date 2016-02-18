@@ -58,9 +58,21 @@ Object types:
 - text
 */
 
-
-//set player atributes
+//set global game settings
 global.lang = os_get_language();
+
+if global.lang != "eng"
+{
+    if global.lang = "ru"
+    {
+        global.lang = "ru"
+    }
+    else
+    {
+        global.lang = "eng";
+    }
+}
+
 global.os = os_type; //for easy debug
 //global.os = os_ios;
 
@@ -73,6 +85,8 @@ else
     window_set_fullscreen(true);
 }
 
+
+//set player atributes &amp;&amp; local game settings
 ini_open("glRes.ini");
 {
     global.gold = ini_read_real("Res","gold",0);
