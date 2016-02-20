@@ -32,8 +32,6 @@ ini_open("glRes.ini")
     spd = ini_read_real("comGoblins","SPD",1.1);
 }
 ini_close();
-
-//move_towards_point(playerObj.x,playerObj.y,spd);
 </string>
           </argument>
         </arguments>
@@ -80,6 +78,12 @@ ini_close();
           <argument>
             <kind>1</kind>
             <string>y += spd;
+
+if y &gt; y_finish
+{
+    global.playScore -= 1;
+    instance_destroy();
+}
 </string>
           </argument>
         </arguments>

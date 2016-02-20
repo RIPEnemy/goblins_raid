@@ -119,6 +119,7 @@ ini_open("glRes.ini");
 }
 ini_close();
 
+global.playScore = 0;
 global.playerClass = 0;
 
 room_goto(mainMenu_room);

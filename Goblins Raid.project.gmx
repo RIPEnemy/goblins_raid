@@ -48,6 +48,7 @@
       <sprite>sprites\soundSpr</sprite>
       <sprite>sprites\randomSpr</sprite>
       <sprite>sprites\backSpr</sprite>
+      <sprite>sprites\pauseSpr</sprite>
       <sprite>sprites\menuLogoSpr</sprite>
       <sprite>sprites\menuArwSpr</sprite>
       <sprite>sprites\menuBtnSpr</sprite>
@@ -56,6 +57,10 @@
         <sprite>sprites\playBtnSpr_empty</sprite>
         <sprite>sprites\menuBtnSpr_empty</sprite>
       </sprites>
+      <sprite>sprites\scoreSpr</sprite>
+      <sprite>sprites\liveSpr</sprite>
+      <sprite>sprites\numberSpr</sprite>
+      <sprite>sprites\attackBeginSpr</sprite>
     </sprites>
     <sprites name="Player Sprites">
       <sprite>sprites\archerSpr</sprite>
@@ -99,6 +104,7 @@
   </scripts>
   <fonts name="fonts">
     <font>fonts\CambriaBold40</font>
+    <font>fonts\CambriaBold36</font>
     <font>fonts\CambriaBold22</font>
     <font>fonts\CambriaBold14</font>
   </fonts>
@@ -122,6 +128,7 @@
       <object>objects\chooseArcherBtnObj</object>
       <object>objects\chooseMageBtnObj</object>
       <object>objects\chooseBuilderBtnObj</object>
+      <object>objects\pauseObj</object>
     </objects>
     <objects name="Player">
       <object>objects\playerParent</object>

@@ -111,6 +111,7 @@ else
           <argument>
             <kind>1</kind>
             <string>destroyNearestObj(comGoblinObj);
+global.playScore += 2;
 instance_destroy();
 </string>
           </argument>

@@ -119,6 +119,7 @@ if device_mouse_check_button_released(0,mb_left)
     case "chooseArcherBtnObj": draw_sprite(menuBigBtnSpr,0,x,y); break;
     case "chooseMageBtnObj": draw_sprite(menuBigBtnSpr,0,x,y); break;
     case "chooseBuilderBtnObj": draw_sprite(menuBigBtnSpr,0,x,y); break;
+    case "pauseObj": draw_sprite(menuBtnSpr,0,x,y); break;
 }
 </string>
           </argument>

@@ -36,6 +36,63 @@
         </arguments>
       </action>
     </event>
+    <event eventtype="2" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>timeLeft = 10;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="3">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if timeLeft &lt; 1
+{
+    waveCountdown = false;
+    alarm[4] = 2;
+}
+else
+{
+    waveCountdown = true;
+    timeLeft -= 1;
+    alarm[3] = room_speed;
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="2" enumb="2">
       <action>
         <libid>1</libid>
@@ -54,6 +111,10 @@
           <argument>
             <kind>1</kind>
             <string>waveCompleate = false;
+alarm[0] = room_speed * waveTimeout;
+timeLeft = waveTimeout;
+alarm[3] = room_speed;
+waveCountdown = true;
 </string>
           </argument>
         </arguments>
@@ -91,6 +152,7 @@
         if countRandom &gt; 0
         {
             goblin = instance_create(randomX,-32,comGoblinObj);
+            goblin.y_finish = playerY;
             waveGoblins -= 1;
             countRandom -= 1;
             alarm[1] = room_speed / maxGoblinsPerSecond;    
@@ -104,11 +166,12 @@
 else
 {
     searchLastObject("enemy");
+    
     if waveGoblins - G2 = waveGoblins
     {
-        alarm[0] = room_speed * waveTimeout;
-        alarm[2] = room_speed * waveTimeout / 2;
-        waveCompleate = true;        
+        alarm[2] = room_speed * 2;
+        waveCompleate = true;   
+        global.playScore += round((30 * sqrt(waveNumber)));     
     }
     else
     {
@@ -148,6 +211,66 @@ else
         </arguments>
       </action>
     </event>
+    <event eventtype="3" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if timeLeft &lt; 1
+{
+    waveCountdown = false;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="5">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>global.lastScore = global.playScore;
+
+if global.playScore &gt; global.topScore
+{
+    ini_open("glRes.ini")
+    {
+        ini_write_real("Res","topScore",global.playScore);   
+    }
+    ini_close();
+    
+    global.topScore = global.playScore;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="7" enumb="4">
       <action>
         <libid>1</libid>
@@ -178,13 +301,19 @@ switch(global.playerClass)
     case 2: instance_create(playerX,playerY,builderObj); break;
 }
 
+
+instance_create(56,56,pauseObj);
+
 //для гоблинов
 waveNumber = 0;
 waveGoblins = 0;
-waveTimeout = 15;
+waveTimeout = 10;
+timeLeft = waveTimeout;
 miniWaveTimeout = 2.5;
 
 waveCompleate = false;
+waveCountdown = false;
+
 spawnBorder = 240;
 maxGoblinsPerSecond = 3;
 countRandom = 2 + round(random(3));
@@ -196,29 +325,12 @@ G2 = waveGoblins;
 alarm[0] - начало волны
 alarm[1] - спавн мобов внутри волны
 alarm[2] - выключает надпись wave compleate
+alarm[3] - менеджер обратного отсчета
 */
 alarm[0] = room_speed * waveTimeout / 3;
 
-/*
-//стены
-wallX = view_wview;
-wallY = view_hview;
-//#1 wall
-wall1 = instance_create(wallX - wallX + 90,wallY - 5,wallLeftObj);
-wall2 = instance_create(wall1.x + 65,wall1.y,wallMiddleObj);
-wall3 = instance_create(wall2.x + 65,wall1.y,wallMiddleObj);
-wall4 = instance_create(wall3.x + 65,wall1.y,wallMiddleObj);
-wall5 = instance_create(wall4.x + 65,wall1.y,wallMiddleObj);
-wall6 = instance_create(wall5.x + 65,wall1.y,wallMiddleObj);
-wall7 = instance_create(wall6.x + 65,wall1.y,wallMiddleObj);
-wall8 = instance_create(wall7.x + 65,wall1.y,wallMiddleObj);
-wall9 = instance_create(wall8.x + 65,wall1.y,wallMiddleObj);
-wall10 = instance_create(wall9.x + 65,wall1.y,wallMiddleObj);
-wall11 = instance_create(wall10.x + 65,wall1.y,wallMiddleObj);
-wall12 = instance_create(wall11.x + 65,wall1.y,wallMiddleObj);
-//wall13 = instance_create(wall12.x + 65,wall1.y,wallMiddleObj);
-wall14 = instance_create(wallX - 90,wall1.y,wallRightObj);
-*/
+global.playScore = 0;
+global.playLives = global.lives;
 </string>
           </argument>
         </arguments>
@@ -244,6 +356,48 @@ wall14 = instance_create(wallX - 90,wall1.y,wallRightObj);
             <string>if waveCompleate = true
 {
     drawText(CambriaBold40,c_white,fa_center,fa_bottom,view_wview / 2,view_hview /2,"wave compleate");
+}
+
+draw_sprite(pauseSpr,0,pauseObj.x,pauseObj.y);
+draw_sprite(scoreSpr,0,txtX - 218,40);
+drawString(CambriaBold36,c_white,fa_left,fa_center,txtX - 190,40,global.playScore);
+
+switch(global.playLives)
+{
+    case 1:
+            draw_sprite(liveSpr,0,txtX - 38,90);
+            draw_sprite(liveSpr,1,txtX - 98,90);
+            draw_sprite(liveSpr,1,txtX - 158,90);
+            draw_sprite(liveSpr,1,txtX - 218,90);
+            break;
+    case 2:
+            draw_sprite(liveSpr,0,txtX - 38,90);
+            draw_sprite(liveSpr,0,txtX - 98,90);
+            draw_sprite(liveSpr,1,txtX - 158,90);
+            draw_sprite(liveSpr,1,txtX - 218,90);
+            break;
+    case 3:
+            draw_sprite(liveSpr,0,txtX - 38,90);
+            draw_sprite(liveSpr,0,txtX - 98,90);
+            draw_sprite(liveSpr,0,txtX - 158,90);
+            draw_sprite(liveSpr,1,txtX - 218,90);
+            break;
+    case 4: 
+            draw_sprite(liveSpr,0,txtX - 38,90);
+            draw_sprite(liveSpr,0,txtX - 98,90);
+            draw_sprite(liveSpr,0,txtX - 158,90);
+            draw_sprite(liveSpr,0,txtX - 218,90);
+            break;
+}
+
+if waveCountdown = true
+{
+    draw_sprite(numberSpr,timeLeft - 1, txtX / 2, 60);
+}
+
+if timeLeft = 0 
+{
+    draw_sprite(attackBeginSpr,0, txtX / 2, 60);
 }
 </string>
           </argument>
