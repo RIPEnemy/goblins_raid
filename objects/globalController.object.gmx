@@ -50,12 +50,19 @@ instance_create(room_width / 2, room_height / 2, camObj);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/*
+            <string>//обновляем рандом при запуске игры
+randomize();
+
+/*
 Object types:
 - controller
 - button
 - sprite
 - text
+- player
+- bullet
+- enemy
+- building
 */
 
 //set global game settings
@@ -90,15 +97,29 @@ else
 ini_open("glRes.ini");
 {
     global.gold = ini_read_real("Res","gold",0);
+    global.lives = ini_read_real("Res","lives",4);
+    
     global.lastScore = ini_read_real("Res","lastScore",0);
     global.topScore = ini_read_real("Res","topScore",0)
+    
     global.archerLvl = ini_read_real("Char","archerLvl",1);
+    global.archerSpd = ini_read_real("Char","archerSpd",1);
+    global.archerASPD = ini_read_real("Char","archerASPD",1);
+    
     global.mageLvl = ini_read_real("Char","mageLvl",1);
-    global.builderLvl = ini_read_real("Char","builderLvl",1); 
+    global.mageSpd = ini_read_real("Char","mageSpd",1);
+    global.mageASPD = ini_read_real("Char","mageASPD",1);
+    
+    global.builderLvl = ini_read_real("Char","builderLvl",1);
+    global.builderSpd = ini_read_real("Char","builderSpd",1);
+    global.builderASPD = ini_read_real("Char","builderASPD",1);
+    
     global.soundStatus = ini_read_real("Option","sound",0);
     global.musicStatus = ini_read_real("Option","music",0);
 }
 ini_close();
+
+global.playerClass = 0;
 
 room_goto(mainMenu_room);
 </string>

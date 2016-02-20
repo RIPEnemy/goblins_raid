@@ -27,13 +27,7 @@
             <kind>1</kind>
             <string>type = "controller";
 
-colBrown = make_colour_rgb(71,15,15);
-colScore = make_colour_rgb(210,108,41);
-colDBlue = make_colour_rgb(27,34,63)
-txtX = view_wview[0];
-txtY = view_hview[0];
-
-musicButton = instance_create(txtX - 150,txtY - 200,musicBtnObj);
+musicButton = instance_create(txtX - 70,txtY - 70,musicBtnObj);
 soundButton = instance_create(musicButton.x - 100, musicButton.y,soundBtnObj);
 playButton = instance_create(txtX / 2, txtY / 2 + 50,playBtnObj);
 
@@ -69,22 +63,22 @@ playButton.viewY = txtY / 2 + 50;
           <argument>
             <kind>1</kind>
             <string>//sprites
-draw_sprite(menuLogoSpr,0,view_wview[0] / 2 - 30,view_hview[0] / 2 - 150);
+draw_sprite(menuLogoSpr,0,view_wview[0] / 2,view_hview[0] / 2 - 50);
 draw_sprite(soundSpr,0,soundBtnObj.x,soundBtnObj.y);
 draw_sprite(musicSpr,0,musicBtnObj.x,musicBtnObj.y);
-draw_sprite(menuArwSpr,0,playBtnObj.x - 110,playBtnObj.y);
+draw_sprite(menuArwSpr,0,txtX / 2 - 115,txtY / 2 + 100);
 
 //score
 //ini с локализациями должен быть строго в кодировке UTF-8!
-drawText(CambriaBold40,colBrown,fa_left,fa_center,txtX / 2 - 100,txtY / 2 + 50,"play");
+drawText(CambriaBold40,c_newBrown,fa_left,fa_center,txtX / 2 - 100,txtY / 2 + 100,"play");
 
-drawText(CambriaBold22,colDBlue,fa_left,fa_center,txtX - (txtX - 52),txtY - (txtY - 55),"lastScoreTxt");
-drawString(CambriaBold22,colScore,fa_center,fa_center,txtX - (txtX - 155),txtY - (txtY - 90),global.lastScore);
+drawText(CambriaBold22,c_darkBlue,fa_left,fa_center,txtX - (txtX - 52),txtY - (txtY - 55),"lastScoreTxt");
+drawString(CambriaBold22,c_Score,fa_center,fa_center,txtX - (txtX - 155),txtY - (txtY - 90),global.lastScore);
 
-drawText(CambriaBold22,colDBlue,fa_right,fa_center,txtX - 122,txtY - (txtY - 55),"topScoreTxt");
-drawString(CambriaBold22,colScore,fa_center,fa_center,txtX - 225,txtY - (txtY - 90),global.topScore);
+drawText(CambriaBold22,c_darkBlue,fa_right,fa_center,txtX - 52,txtY - (txtY - 55),"topScoreTxt");
+drawString(CambriaBold22,c_Score,fa_center,fa_center,txtX - 155,txtY - (txtY - 90),global.topScore);
 
-drawText(CambriaBold14,colDBlue,fa_center,fa_center,txtX / 2 - 20,txtY - 150,"copyright");
+drawText(CambriaBold14,c_darkBlue,fa_center,fa_center,txtX / 2,txtY - 30,"copyright");
 </string>
           </argument>
         </arguments>

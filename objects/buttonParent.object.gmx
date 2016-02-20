@@ -87,27 +87,38 @@ if device_mouse_check_button_released(0,mb_left)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>with(playBtnObj)
+            <string>switch(object_get_name(object_index))
 {
-    draw_sprite(playBtnSpr_empty,0,x,y);
-}
-
-with(musicBtnObj)
-{
-    switch (status)
-    {
-        case 0: draw_sprite(menuBtnSpr,0,x,y); break;
-        case 1: draw_sprite(menuBtnSpr,1,x,y); break;
-    }
-}
-
-with(soundBtnObj)
-{
-    switch (status)
-    {
-        case 0: draw_sprite(menuBtnSpr,0,x,y); break;
-        case 1: draw_sprite(menuBtnSpr,1,x,y); break;
-    }
+    case "playBtnObj": draw_sprite(playBtnSpr_empty,0,x,y); break;
+    case "musicBtnObj":
+                        if status = 0
+                        {
+                            draw_sprite(menuBtnSpr,0,x,y);
+                        } 
+                        else
+                        {
+                            draw_sprite(menuBtnSpr,1,x,y);
+                        }
+                        
+                        break;
+                        
+    case "soundBtnObj": 
+                        if status = 0
+                        {
+                            draw_sprite(menuBtnSpr,0,x,y);
+                        } 
+                        else
+                        {
+                            draw_sprite(menuBtnSpr,1,x,y);
+                        }
+                        
+                        break;
+                        
+    case "backBtnObj": draw_sprite(menuBtnSpr,0,x,y); break;
+    case "randomBtnObj": draw_sprite(menuBtnSpr,0,x,y); break;
+    case "chooseArcherBtnObj": draw_sprite(menuBigBtnSpr,0,x,y); break;
+    case "chooseMageBtnObj": draw_sprite(menuBigBtnSpr,0,x,y); break;
+    case "chooseBuilderBtnObj": draw_sprite(menuBigBtnSpr,0,x,y); break;
 }
 </string>
           </argument>

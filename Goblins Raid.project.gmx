@@ -42,29 +42,60 @@
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
-    <sprite>sprites\menuBtnSpr</sprite>
-    <sprite>sprites\menuArwSpr</sprite>
-    <sprite>sprites\menuLogoSpr</sprite>
-    <sprite>sprites\soundSpr</sprite>
-    <sprite>sprites\musicSpr</sprite>
-    <sprites name="empty_btns">
-      <sprite>sprites\playBtnSpr_empty</sprite>
-      <sprite>sprites\menuBtnSpr_empty</sprite>
+    <sprite>sprites\bloodSpr</sprite>
+    <sprites name="Menu Sprites">
+      <sprite>sprites\musicSpr</sprite>
+      <sprite>sprites\soundSpr</sprite>
+      <sprite>sprites\randomSpr</sprite>
+      <sprite>sprites\backSpr</sprite>
+      <sprite>sprites\menuLogoSpr</sprite>
+      <sprite>sprites\menuArwSpr</sprite>
+      <sprite>sprites\menuBtnSpr</sprite>
+      <sprite>sprites\menuBigBtnSpr</sprite>
+      <sprites name="Empty Buttons">
+        <sprite>sprites\playBtnSpr_empty</sprite>
+        <sprite>sprites\menuBtnSpr_empty</sprite>
+      </sprites>
+    </sprites>
+    <sprites name="Player Sprites">
+      <sprite>sprites\archerSpr</sprite>
+      <sprite>sprites\archerBulletSpr</sprite>
+      <sprite>sprites\mageSpr</sprite>
+      <sprite>sprites\mageBulletSpr</sprite>
+      <sprite>sprites\builderSpr</sprite>
+      <sprite>sprites\builderBulletSpr</sprite>
+    </sprites>
+    <sprites name="Enemy Sprites">
+      <sprite>sprites\comGoblinSpr</sprite>
+    </sprites>
+    <sprites name="Map Sprites">
+      <sprite>sprites\wallRightSpr</sprite>
+      <sprite>sprites\wallMiddleSpr</sprite>
+      <sprite>sprites\wallLeftSpr</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\menuBG</background>
     <background>background\grassBG_1</background>
+    <background>background\tileset1</background>
+    <background>background\lightstoneBG1</background>
+    <background>background\lightstoneBG2</background>
+    <background>background\lightstoneBG3</background>
+    <background>background\blackBG</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
-    <script>scripts\destroyAllInst.gml</script>
-    <script>scripts\roomPort.gml</script>
     <scripts name="draw">
       <script>scripts\drawText.gml</script>
       <script>scripts\drawString.gml</script>
+      <script>scripts\roomPort.gml</script>
     </scripts>
     <script>scripts\changeStatus.gml</script>
+    <script>scripts\destroyAllInst.gml</script>
+    <script>scripts\collisionTarget.gml</script>
+    <script>scripts\playerKill.gml</script>
+    <script>scripts\searchLastObject.gml</script>
+    <script>scripts\destroyNearestObj.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\CambriaBold40</font>
@@ -74,22 +105,69 @@
   <objects name="objects">
     <objects name="Controllers">
       <object>objects\globalController</object>
-      <object>objects\mainMenuController</object>
       <object>objects\camObj</object>
+      <objects name="Room Controllers">
+        <object>objects\mainMenuController</object>
+        <object>objects\chooseRoomController</object>
+        <object>objects\playRoomController</object>
+      </objects>
     </objects>
     <objects name="Menu">
       <object>objects\buttonParent</object>
       <object>objects\playBtnObj</object>
       <object>objects\musicBtnObj</object>
       <object>objects\soundBtnObj</object>
+      <object>objects\backBtnObj</object>
+      <object>objects\randomBtnObj</object>
+      <object>objects\chooseArcherBtnObj</object>
+      <object>objects\chooseMageBtnObj</object>
+      <object>objects\chooseBuilderBtnObj</object>
+    </objects>
+    <objects name="Player">
+      <object>objects\playerParent</object>
+      <object>objects\archerObj</object>
+      <object>objects\mageObj</object>
+      <object>objects\builderObj</object>
+      <object>objects\bulletObj</object>
+    </objects>
+    <objects name="Enemy">
+      <objects name="Goblin Parents">
+        <object>objects\comParent</object>
+        <object>objects\uncomParent</object>
+        <object>objects\rareParent</object>
+        <object>objects\uniqueParent</object>
+      </objects>
+      <objects name="Goblin objs">
+        <object>objects\comGoblinObj</object>
+        <object>objects\uncomGoblinObj</object>
+        <object>objects\rareGoblinObj</object>
+        <object>objects\uniqueGoblinObj</object>
+      </objects>
+    </objects>
+    <objects name="Map Objects">
+      <objects name="Walls">
+        <object>objects\wallParent</object>
+        <object>objects\wallRightObj</object>
+        <object>objects\wallMiddleObj</object>
+        <object>objects\wallLeftObj</object>
+      </objects>
+      <object>objects\bloodObj</object>
     </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\start_room</room>
     <room>rooms\mainMenu_room</room>
-    <room>rooms\choose_room</room>
+    <room>rooms\chooseHero_room</room>
     <room>rooms\play_room</room>
+    <room>rooms\play_room2</room>
   </rooms>
+  <constants number="5">
+    <constant name="txtY">view_hview[0]</constant>
+    <constant name="txtX">view_wview[0]</constant>
+    <constant name="c_newBrown">make_colour_rgb(71,15,15)</constant>
+    <constant name="c_Score">make_colour_rgb(210,108,41)</constant>
+    <constant name="c_darkBlue">make_colour_rgb(27,34,63)</constant>
+  </constants>
   <help>
     <rtf>help.rtf</rtf>
   </help>
