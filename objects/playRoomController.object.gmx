@@ -460,6 +460,12 @@ drawString(CambriaBold36,c_white,fa_left,fa_center,txtX - 190,40,global.playScor
 
 switch(global.playLives)
 {
+    case 0:
+            draw_sprite(liveSpr,1,txtX - 38,90);
+            draw_sprite(liveSpr,1,txtX - 98,90);
+            draw_sprite(liveSpr,1,txtX - 158,90);
+            draw_sprite(liveSpr,1,txtX - 218,90);
+            break;
     case 1:
             draw_sprite(liveSpr,0,txtX - 38,90);
             draw_sprite(liveSpr,1,txtX - 98,90);
