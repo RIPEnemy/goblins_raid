@@ -73,6 +73,8 @@
       <sprite>sprites\builderBulletSpr</sprite>
       <sprite>sprites\blinkBtnSpr</sprite>
       <sprite>sprites\mageBigSpr</sprite>
+      <sprite>sprites\archerBigSpr</sprite>
+      <sprite>sprites\builderBigSpr</sprite>
     </sprites>
     <sprites name="Enemy Sprites">
       <sprite>sprites\comGoblinSpr</sprite>

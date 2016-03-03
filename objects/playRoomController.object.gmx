@@ -164,7 +164,14 @@ waveCountdown = true;
        
     switch(wavePhase)
     {
-        case 1: goblinSpawn(45,14,0,41); break; //goblinSpawn(85,14,0,1); break;
+        /*
+        goblinSpawn - скрипт создания гоблинов
+        85 - шанс создания common
+        14 - шанс создания uncommon
+        0 - шанс создания rare
+        1 - шанс создания unique
+        */
+        case 1: goblinSpawn(85,14,0,1); break;
         case 2:
                 if waveNumber &gt;= 6 
                 {

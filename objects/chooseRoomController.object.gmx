@@ -63,9 +63,9 @@ chooseBuilderButton.type = "button";
             <string>//sprites
 draw_sprite(backSpr,0,backBtnObj.x,backBtnObj.y);
 draw_sprite(randomSpr,0,randomBtnObj.x,randomBtnObj.y);
-draw_sprite(archerSpr,0,(txtX - txtX) + 190,backBtnObj.y + 220);
-draw_sprite(mageBigSpr,0,txtX / 2,backBtnObj.y + 220);
-draw_sprite(builderSpr,0,txtX - 190,backBtnObj.y + 220);
+draw_sprite(archerBigSpr,0,(txtX - txtX) + 190,backBtnObj.y + 210);
+draw_sprite(mageBigSpr,0,txtX / 2,backBtnObj.y + 210);
+draw_sprite(builderBigSpr,0,txtX - 190,backBtnObj.y + 210);
 
 //texts
 drawText(CambriaBold40,c_darkBlue,fa_center,fa_center,txtX / 2,backBtnObj.y,"choose hero");
@@ -74,9 +74,9 @@ drawText(CambriaBold22,c_darkBlue,fa_center,fa_center,(txtX - txtX) + 190,backBt
 drawText(CambriaBold22,c_darkBlue,fa_center,fa_center,txtX / 2,backBtnObj.y + 120,"mage_name");
 drawText(CambriaBold22,c_darkBlue,fa_center,fa_center,txtX - 190,backBtnObj.y + 120,"builder_name");
 
-drawText(CambriaBold14,c_darkBlue,fa_center,fa_center,(txtX - txtX) + 190,backBtnObj.y + 280,"archer");
-drawText(CambriaBold14,c_darkBlue,fa_center,fa_center,txtX / 2,backBtnObj.y + 280,"mage");
-drawText(CambriaBold14,c_darkBlue,fa_center,fa_center,txtX - 190,backBtnObj.y + 280,"builder");
+drawText(CambriaBold14,c_darkBlue,fa_center,fa_center,(txtX - txtX) + 190,backBtnObj.y + 295,"archer");
+drawText(CambriaBold14,c_darkBlue,fa_center,fa_center,txtX / 2,backBtnObj.y + 295,"mage");
+drawText(CambriaBold14,c_darkBlue,fa_center,fa_center,txtX - 190,backBtnObj.y + 295,"builder");
 
 drawText(CambriaBold22,c_black,fa_center,fa_center,chooseArcherButton.x,chooseArcherButton.y,"choose");
 drawText(CambriaBold22,c_black,fa_center,fa_center,chooseMageButton.x,chooseMageButton.y,"choose");
