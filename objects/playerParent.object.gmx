@@ -31,14 +31,134 @@ moveLeft = false;
 moveRight = false;
 fire = true;
 
+firstSkill = true;
+secondSkill = true;
+
+b_speed = 1;
+b_aspd = 1;
+b_mfire = 1;
+damage = 1;
+
 dir = 0;
 
+moveSpd = 1;
+attackSpd = 1;
+fristSckillCD = 1;
+secondSkillCD = 1;
+
+
+//set char atributes in alarm[11]
+alarm[11] = 1;
+
+/*
 switch(global.playerClass)
 {
-    case 0: moveSpd = global.archerSpd; attackSpd = global.archerASPD; break;
-    case 1: moveSpd = global.mageSpd; attackSpd = global.mageASPD; break;
-    case 2: moveSpd = global.builderSpd; attackSpd = global.builderASPD; break;
+    case 0: moveSpd = global.archerSpd * b_spd; 
+            attackSpd = global.archerASPD * b_aspd; 
+            fristSckillCD = room_speed * 3; 
+            secondSkillCD = room_speed * 10; 
+            break;
+    case 1: moveSpd = global.mageSpd * b_speed; 
+            attackSpd = global.mageASPD * b_aspd; ;
+            fristSckillCD = room_speed * 3; 
+            secondSkillCD = room_speed * 10;  
+            break;
+    case 2: moveSpd = global.builderSpd * b_spd;; 
+            attackSpd = global.builderASPD * b_aspd; ; 
+            fristSckillCD = room_speed * 3; 
+            secondSkillCD = room_speed * 10; 
+            break;
 }
+*/
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="11">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>switch(global.playerClass)
+{
+    case 0: 
+            moveSpd = global.archerSpd * b_speed; 
+            attackSpd = global.archerASPD * b_aspd; 
+            fristSckillCD = room_speed * 3;
+            secondSkillCD = room_speed * 10; 
+            break;
+    case 1: 
+            moveSpd = global.mageSpd * b_speed; 
+            attackSpd = global.mageASPD * b_aspd; ;
+            fristSckillCD = room_speed * 3; 
+            secondSkillCD = room_speed * 10;  
+            break;
+    case 2: 
+            moveSpd = global.builderSpd * b_speed;; 
+            attackSpd = global.builderASPD * b_aspd;
+            fristSckillCD = room_speed * 3; 
+            secondSkillCD = room_speed * 10; 
+            break;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>secondSkill = true;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>firstSkill = true;
 </string>
           </argument>
         </arguments>
@@ -102,9 +222,28 @@ switch(global.playerClass)
     {
         if fire = true
         {
-            instance_create(x,y,bulletObj); 
-            alarm[0] = room_speed * attackSpd; 
-            fire = false;  
+            switch(b_mfire)
+            {
+                case 1: 
+                        instance_create(x - 22,y - 17,bulletObj);
+                        alarm[0] = room_speed * attackSpd; 
+                        fire = false;
+                        break;
+                case 2: 
+                        instance_create(x - 35,y - 17,bulletObj);
+                        instance_create(x - 35,y - 17,bulletObj);
+                        alarm[0] = room_speed * attackSpd; 
+                        fire = false;
+                        break;
+                case 3:
+                        instance_create(x - 35,y - 17,bulletObj);
+                        instance_create(x - 35,y - 17,bulletObj);
+                        instance_create(x - 22,y - 30,bulletObj);
+                        alarm[0] = room_speed * attackSpd; 
+                        fire = false;
+                        break;
+                        
+            }  
         }
     }
 }
@@ -112,6 +251,121 @@ else
 {
     dir = 0;
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="comGoblinBullet">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>playerKill(comGoblinBullet);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="uncomGoblinBullet">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>playerKill(uncomGoblinBullet);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="uniqueGoblinObj">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>playerKill(uniqueGoblinObj);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="rareGoblinObj">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>playerKill(rareGoblinObj);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="uncomGoblinObj">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>playerKill(uncomGoblinObj);
 </string>
           </argument>
         </arguments>

@@ -6,10 +6,10 @@ with(myEnemy)
     instance_destroy();
 }
 
-if global.lives > 0
+if global.playLives > 0
 {
     global.playLives -= 1;
-    global.playScore -= 12;
+    global.playScore -= 350;
     playRoomController.alarm[11] = room_speed;
     instance_destroy();
 }

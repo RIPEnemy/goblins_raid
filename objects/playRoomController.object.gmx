@@ -144,24 +144,61 @@ waveCountdown = true;
         {
             randomX = spawnBorder;
         }
-        if randomX &gt; view_wview - spawnBorder
+            if randomX &gt; view_wview - spawnBorder
+            {
+                randomX = view_wview - spawnBorder
+            }
+            
+    if waveGoblins = initGoblins
+    {
+        wavePhase = 1;
+    }
+        if waveGoblins = initGoblins / 2
         {
-            randomX = view_wview - spawnBorder
+            wavePahse = 2;
         }
-        
-        if countRandom &gt; 0
-        {
-            goblin = instance_create(randomX,-32,comGoblinObj);
-            goblin.y_finish = playerY;
-            waveGoblins -= 1;
-            countRandom -= 1;
-            alarm[1] = room_speed / maxGoblinsPerSecond;    
-        }
-        else
-        {
-            countRandom = 2 + round(random(3));
-            alarm[1] = room_speed * miniWaveTimeout;
-        }
+            if waveGoblins = initGoblins / 3
+            {
+                wavePhase = 3;
+            }
+       
+    switch(wavePhase)
+    {
+        case 1: goblinSpawn(45,14,0,41); break; //goblinSpawn(85,14,0,1); break;
+        case 2:
+                if waveNumber &gt;= 6 
+                {
+                    goblinSpawn(65,24,10,1);
+                }
+                else
+                {
+                    goblinSpawn(64,35,0,1);
+                }
+                
+                break;
+        case 3: 
+                if waveNumber &gt;= 6
+                {
+                    if waveNumber &lt; 8
+                    {
+                        goblinSpawn(65,24,10,1);
+                    }
+                        if waveNumber &gt;= 8 &amp;&amp; waveNumber &lt;= 11
+                        {
+                            goblinSpawn(50,35,13,2);
+                        }
+                            if waveNumber &gt; 11
+                            {
+                                goblinSpawn(44,30,18,8);
+                            }
+                }
+                else
+                {
+                    goblinSpawn(64,35,0,1);
+                }
+                
+                break;
+    }
 }
 else
 {
@@ -204,6 +241,8 @@ else
 {
     waveNumber += 1;
     waveGoblins = 2 + round((waveNumber + 3) * sqrt(waveNumber));
+    initGoblins = waveGoblins;
+    wavePhase = 1;
     alarm[1] = 1;
 }
 </string>
@@ -290,6 +329,8 @@ if global.playScore &gt; global.topScore
             <kind>1</kind>
             <string>type = "controller";
 
+randomize();
+
 //для игрока
 playerX = view_wview / 2;
 playerY = view_hview - 220;
@@ -307,18 +348,33 @@ instance_create(56,56,pauseObj);
 //для гоблинов
 waveNumber = 0;
 waveGoblins = 0;
+wavePhase = 0;
 waveTimeout = 10;
 timeLeft = waveTimeout;
-miniWaveTimeout = 2.5;
+miniWaveTimeout = 1.25;
 
 waveCompleate = false;
 waveCountdown = false;
 
 spawnBorder = 240;
-maxGoblinsPerSecond = 3;
+maxGoblinsPerSecond = 8;
 countRandom = 2 + round(random(3));
 
 G2 = waveGoblins;
+initGoblins = waveGoblins;
+
+ini_open("glRes.ini")
+{
+    global.comSPD = ini_read_real("Goblins","comSPD",1);
+    global.comHP = ini_read_real("Goblins","comHP",1);
+    global.uncomSPD = ini_read_real("Goblins","uncomSPD",1);
+    global.uncomHP = ini_read_real("Goblins","uncomHP",1);
+    global.rareSPD = ini_read_real("Goblins","rareSPD",1);
+    global.rareHP = ini_read_real("Goblins","rareHP",1);
+    global.uniqueSPD = ini_read_real("Goblins","uniqueSPD",1);
+    global.uniqueHP = ini_read_real("Goblins","uniqueHP",1);
+}
+ini_close();
 
 /*
 Структура таймеров волн
@@ -331,6 +387,32 @@ alarm[0] = room_speed * waveTimeout / 3;
 
 global.playScore = 0;
 global.playLives = global.lives;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="74">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if timeLeft = 0 
+{
+    draw_sprite(attackBeginSpr,0, txtX / 2, 60);
+}
 </string>
           </argument>
         </arguments>
@@ -355,7 +437,14 @@ global.playLives = global.lives;
             <kind>1</kind>
             <string>if waveCompleate = true
 {
-    drawText(CambriaBold40,c_white,fa_center,fa_bottom,view_wview / 2,view_hview /2,"wave compleate");
+    /* не очень красивые надписи получились
+    switch(global.lang)
+    {
+        case "ru": draw_sprite(waveDestroySpr,1, txtX / 2, 60); break;
+        case "en": draw_sprite(waveDestroySpr,0, txtX / 2, 60); break;
+    }
+    */
+    drawText(CambriaBold40,c_white,fa_center,fa_center,txtX / 2,txtY / 2,"wave compleate");
 }
 
 draw_sprite(pauseSpr,0,pauseObj.x,pauseObj.y);
@@ -393,11 +482,6 @@ switch(global.playLives)
 if waveCountdown = true
 {
     draw_sprite(numberSpr,timeLeft - 1, txtX / 2, 60);
-}
-
-if timeLeft = 0 
-{
-    draw_sprite(attackBeginSpr,0, txtX / 2, 60);
 }
 </string>
           </argument>

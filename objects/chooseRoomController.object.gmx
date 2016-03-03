@@ -64,7 +64,7 @@ chooseBuilderButton.type = "button";
 draw_sprite(backSpr,0,backBtnObj.x,backBtnObj.y);
 draw_sprite(randomSpr,0,randomBtnObj.x,randomBtnObj.y);
 draw_sprite(archerSpr,0,(txtX - txtX) + 190,backBtnObj.y + 220);
-draw_sprite(mageSpr,0,txtX / 2,backBtnObj.y + 220);
+draw_sprite(mageBigSpr,0,txtX / 2,backBtnObj.y + 220);
 draw_sprite(builderSpr,0,txtX - 190,backBtnObj.y + 220);
 
 //texts
