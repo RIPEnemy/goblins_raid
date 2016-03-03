@@ -444,14 +444,12 @@ global.playLives = global.lives;
             <kind>1</kind>
             <string>if waveCompleate = true
 {
-    /* не очень красивые надписи получились
     switch(global.lang)
     {
         case "ru": draw_sprite(waveDestroySpr,1, txtX / 2, 60); break;
         case "en": draw_sprite(waveDestroySpr,0, txtX / 2, 60); break;
     }
-    */
-    drawText(CambriaBold40,c_white,fa_center,fa_center,txtX / 2,txtY / 2,"wave compleate");
+    //drawText(CambriaBold40,c_white,fa_center,fa_center,txtX / 2,txtY / 2 - 70,"wave compleate");
 }
 
 draw_sprite(pauseSpr,0,pauseObj.x,pauseObj.y);
@@ -495,6 +493,22 @@ switch(global.playLives)
 if waveCountdown = true
 {
     draw_sprite(numberSpr,timeLeft - 1, txtX / 2, 60);
+}
+else
+{
+    if waveCompleate = false
+    {
+        drawText(CambriaBold36,c_white,fa_left,fa_center,txtX - 240, 140,"wave");
+        
+            if waveNumber &lt; 1
+            {
+                drawString(CambriaBold36,c_white,fa_left,fa_center,txtX - 80, 140,1);
+            }
+            else
+            {
+                drawString(CambriaBold36,c_white,fa_left,fa_center,txtX - 80, 140,waveNumber);
+            }
+    }
 }
 </string>
           </argument>

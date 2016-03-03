@@ -37,7 +37,7 @@ secondSkill = true;
 b_speed = 1;
 b_aspd = 1;
 b_mfire = 1;
-damage = 1;
+global.damage = 1;
 
 dir = 0;
 

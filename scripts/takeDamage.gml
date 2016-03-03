@@ -3,7 +3,7 @@ enemy = argument0;
 
 with(instance_nearest(x,y,enemy))
 {
-    hp -= playerParent.damage;
+    hp -= global.damage;
     instance_create(x,y - 10,bloodObj);
     
     if hp < 1

@@ -27,9 +27,9 @@
             <kind>1</kind>
             <string>with(playerParent)
 {
-    if damage &lt; 3
+    if global.damage &lt; 3
     {
-        damage += 1;
+        global.damage += 1;
     }
 }
 
