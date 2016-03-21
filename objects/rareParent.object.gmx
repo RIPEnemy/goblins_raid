@@ -29,7 +29,7 @@
 
 spd = global.rareSPD;
 hp = global.rareHP;
-a = 1;
+a = 0;
 </string>
           </argument>
         </arguments>
