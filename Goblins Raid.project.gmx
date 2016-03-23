@@ -62,6 +62,10 @@
       <sprite>sprites\numberSpr</sprite>
       <sprite>sprites\attackBeginSpr</sprite>
       <sprite>sprites\waveDestroySpr</sprite>
+      <sprite>sprites\waveBarBGSpr</sprite>
+      <sprite>sprites\waveBarBorderSpr</sprite>
+      <sprite>sprites\waveBarInnerSpr</sprite>
+      <sprite>sprites\backBarSpr</sprite>
     </sprites>
     <sprites name="Player Sprites">
       <sprite>sprites\archerSpr</sprite>
@@ -88,11 +92,13 @@
       <sprite>sprites\wallRightSpr</sprite>
       <sprite>sprites\wallMiddleSpr</sprite>
       <sprite>sprites\wallLeftSpr</sprite>
-      <sprite>sprites\buff_speedSpr</sprite>
       <sprite>sprites\buff_damageSpr</sprite>
+      <sprite>sprites\buff_mini_damageSpr</sprite>
       <sprite>sprites\buff_attackSpeedSpr</sprite>
-      <sprite>sprites\buff_skillCDSpr</sprite>
+      <sprite>sprites\buff_mini_attackSpeedSpr</sprite>
       <sprite>sprites\buff_MFireSpr</sprite>
+      <sprite>sprites\buff_mini_MFireSpr</sprite>
+      <sprite>sprites\buff_lifeSpr</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -120,6 +126,11 @@
     <script>scripts\takeDamage.gml</script>
     <script>scripts\goblinSpawn.gml</script>
     <script>scripts\moveToFinish.gml</script>
+    <scripts name="buffs">
+      <script>scripts\buffBonus.gml</script>
+      <script>scripts\getBuff.gml</script>
+      <script>scripts\buffReplace.gml</script>
+    </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\CambriaBold40</font>
@@ -183,11 +194,10 @@
       <object>objects\bloodObj</object>
       <objects name="buffs">
         <object>objects\buffParent</object>
-        <object>objects\buffSpeed</object>
         <object>objects\buffAtkSpeed</object>
         <object>objects\buffMFire</object>
-        <object>objects\buffSkillCD</object>
         <object>objects\buffDamage</object>
+        <object>objects\buffLife</object>
       </objects>
     </objects>
   </objects>
@@ -198,12 +208,13 @@
     <room>rooms\play_room</room>
     <room>rooms\play_room2</room>
   </rooms>
-  <constants number="5">
+  <constants number="6">
     <constant name="txtY">view_hview[0]</constant>
     <constant name="txtX">view_wview[0]</constant>
     <constant name="c_newBrown">make_colour_rgb(71,15,15)</constant>
     <constant name="c_Score">make_colour_rgb(210,108,41)</constant>
     <constant name="c_darkBlue">make_colour_rgb(27,34,63)</constant>
+    <constant name="c_lightYellow">make_colour_rgb(251,243,187)</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

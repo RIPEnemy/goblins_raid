@@ -38,6 +38,12 @@ b_speed = 1;
 b_aspd = 1;
 b_mfire = 1;
 global.damage = 1;
+buffs = 0;
+buffs_max = 3;
+buffSlot = 0;
+buff[0] = -1;
+buff[1] = -1;
+buff[2] = -1;
 
 dir = 0;
 
@@ -70,6 +76,29 @@ switch(global.playerClass)
             break;
 }
 */
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>global.damage = 1;
 </string>
           </argument>
         </arguments>
@@ -231,14 +260,14 @@ switch(global.playerClass)
                         break;
                 case 2: 
                         instance_create(x - 35,y - 17,bulletObj);
-                        instance_create(x - 35,y - 17,bulletObj);
+                        instance_create(x - 22,y - 30,bulletObj);
                         alarm[0] = room_speed * attackSpd; 
                         fire = false;
                         break;
                 case 3:
                         instance_create(x - 35,y - 17,bulletObj);
-                        instance_create(x - 35,y - 17,bulletObj);
                         instance_create(x - 22,y - 30,bulletObj);
+                        instance_create(x - 48,y - 30,bulletObj);
                         alarm[0] = room_speed * attackSpd; 
                         fire = false;
                         break;
@@ -413,6 +442,43 @@ else
             <kind>1</kind>
             <string>image_angle = dir;
 draw_self();
+
+/*
+-1 = noone
+0 = buffAtkSpeed
+1 = buffMFire
+2 = buffDamage
+*/
+
+if buff[0] != -1
+{
+    switch(buff[0])
+    {
+        case 0: draw_sprite(buff_mini_attackSpeedSpr,0,x - 19,y + 45); break;
+        case 1: draw_sprite(buff_mini_MFireSpr,0,x - 19,y + 45); break;
+        case 2: draw_sprite(buff_mini_damageSpr,0,x - 19,y + 45); break;
+    }
+}
+
+if buff[1] != -1
+{
+    switch(buff[1])
+    {
+        case 0: draw_sprite(buff_mini_attackSpeedSpr,0,x,y + 45); break;
+        case 1: draw_sprite(buff_mini_MFireSpr,0,x,y + 45); break;
+        case 2: draw_sprite(buff_mini_damageSpr,0,x,y + 45); break;
+    }
+}
+
+if buff[2] != -1
+{
+    switch(buff[2])
+    {
+        case 0: draw_sprite(buff_mini_attackSpeedSpr,0,x + 19,y + 45); break;
+        case 1: draw_sprite(buff_mini_MFireSpr,0,x + 19,y + 45); break;
+        case 2: draw_sprite(buff_mini_damageSpr,0,x + 19,y + 45); break;
+    }
+}
 </string>
           </argument>
         </arguments>

@@ -54,16 +54,20 @@ d = round(random(1));
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//instance_create(x,y,bloodObj);
+            <string>//создаем бафы, жизнь падает с шансом 1 к 6
+global.liveGoblins -= 1;
 
-a = round(random(3));
+a = round(random(6));
 
 switch(a)
 {
-    case 0: instance_create(x,y,buffSpeed); break;
+    case 0: instance_create(x,y,buffAtkSpeed); break;
     case 1: instance_create(x,y,buffAtkSpeed); break;
     case 2: instance_create(x,y,buffDamage); break;
-    case 3: instance_create(x,y,buffSkillCD); break;
+    case 3: instance_create(x,y,buffDamage); break;
+    case 4: instance_create(x,y,buffMFire); break;
+    case 5: instance_create(x,y,buffMFire); break;
+    case 6: instance_create(x,y,buffLife); break;
 }
 </string>
           </argument>

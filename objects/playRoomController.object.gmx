@@ -247,8 +247,16 @@ else
             <string>if waveGoblins = 0
 {
     waveNumber += 1;
-    waveGoblins = 2 + round((waveNumber + 3) * sqrt(waveNumber));
+        if waveNumber &lt; 6
+        {
+            waveGoblins = waveNumber * 10;
+        }
+        else
+        {
+            waveGoblins = 2 + round((waveNumber + 4) * sqrt(waveNumber * 5));
+        }
     initGoblins = waveGoblins;
+    global.liveGoblins = initGoblins;
     wavePhase = 1;
     alarm[1] = 1;
 }
@@ -369,6 +377,7 @@ countRandom = 2 + round(random(3));
 
 G2 = waveGoblins;
 initGoblins = waveGoblins;
+global.liveGoblins = initGoblins;
 
 ini_open("glRes.ini")
 {
@@ -418,7 +427,57 @@ global.playLives = global.lives;
             <kind>1</kind>
             <string>if timeLeft = 0 
 {
-    draw_sprite(attackBeginSpr,0, txtX / 2, 60);
+    draw_sprite(attackBeginSpr,0, txtX / 2, txtY / 2 - 50);
+}
+
+if waveCountdown = true
+{
+    draw_sprite(numberSpr,timeLeft - 1, txtX / 2, txtY / 2 - 50);
+}
+/*
+else
+{
+    if waveCompleate = false
+    {
+    }
+}
+*/
+
+//drawText(CambriaBold36,c_white,fa_left,fa_center,txtX - 240, 140,"wave");
+
+draw_sprite(backBarSpr,0,81,57);
+draw_sprite(waveBarBGSpr,0,82,54);
+
+    if global.liveGoblins &gt; 0
+    {
+        draw_sprite_ext(waveBarInnerSpr,0,90,58,1 - (global.liveGoblins / initGoblins),1,0,c_white,1);
+    }
+    else if waveNumber &gt;= 1
+    {
+        draw_sprite(waveBarInnerSpr,0,90,58);
+    }
+    
+draw_sprite(waveBarBorderSpr,0,81,54);
+drawText(CambriaBold22,c_black,fa_left,fa_center,131,39,"wave");
+
+    /*
+    if waveNumber &lt; 1
+    {
+        drawString(CambriaBold36,c_white,fa_left,fa_center,txtX - 80, 140,1);
+    }
+    else
+    {
+        drawString(CambriaBold36,c_white,fa_left,fa_center,txtX - 80, 140,waveNumber);
+    }
+    */
+    
+if waveNumber &lt; 1
+{
+    drawString(CambriaBold22,c_black,fa_left,fa_center,234,39,1);
+}
+else
+{
+    drawString(CambriaBold22,c_black,fa_left,fa_center,234,39,waveNumber);
 }
 </string>
           </argument>
@@ -446,8 +505,8 @@ global.playLives = global.lives;
 {
     switch(global.lang)
     {
-        case "ru": draw_sprite(waveDestroySpr,1, txtX / 2, 60); break;
-        case "en": draw_sprite(waveDestroySpr,0, txtX / 2, 60); break;
+        case "ru": draw_sprite(waveDestroySpr,1, txtX / 2, txtY / 2 - 50); break;//draw_sprite(waveDestroySpr,1, txtX / 2, 60); break;
+        case "en": draw_sprite(waveDestroySpr,0, txtX / 2, txtY/2 - 50); break;//draw_sprite(waveDestroySpr,0, txtX / 2, 60); break;
     }
     //drawText(CambriaBold40,c_white,fa_center,fa_center,txtX / 2,txtY / 2 - 70,"wave compleate");
 }
@@ -488,27 +547,6 @@ switch(global.playLives)
             draw_sprite(liveSpr,0,txtX - 158,90);
             draw_sprite(liveSpr,0,txtX - 218,90);
             break;
-}
-
-if waveCountdown = true
-{
-    draw_sprite(numberSpr,timeLeft - 1, txtX / 2, 60);
-}
-else
-{
-    if waveCompleate = false
-    {
-        drawText(CambriaBold36,c_white,fa_left,fa_center,txtX - 240, 140,"wave");
-        
-            if waveNumber &lt; 1
-            {
-                drawString(CambriaBold36,c_white,fa_left,fa_center,txtX - 80, 140,1);
-            }
-            else
-            {
-                drawString(CambriaBold36,c_white,fa_left,fa_center,txtX - 80, 140,waveNumber);
-            }
-    }
 }
 </string>
           </argument>

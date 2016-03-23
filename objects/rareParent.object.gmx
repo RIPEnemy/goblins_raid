@@ -53,6 +53,7 @@ a = 0;
           <argument>
             <kind>1</kind>
             <string>//instance_create(x,y,bloodObj);
+global.liveGoblins -= 1;
 
 drop = 1 + round(random(99));
 

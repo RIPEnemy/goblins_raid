@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>type = "buff";
 
-spd = 0.9;
+spd = 2.5;
 
 y_finish = playerParent.y;
 </string>
@@ -81,6 +81,42 @@ if y &gt; y_finish
 {
     instance_destroy();
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="playerParent">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>switch(object_get_name(object_index))
+{
+    case "buffAtkSpeed": getBuff(0); break;
+    case "buffMFire": getBuff(1); break;
+    case "buffDamage": getBuff(2); break;
+    case "buffLife":
+                    if global.playLives &lt; 4
+                    {
+                        global.playLives += 1;
+                    }
+                    break;
+}
+
+instance_destroy();
 </string>
           </argument>
         </arguments>
