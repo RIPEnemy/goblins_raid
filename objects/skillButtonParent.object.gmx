@@ -38,6 +38,38 @@ status = 0;
         </arguments>
       </action>
     </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>guiX = device_mouse_x_to_gui(0);
+guiY = device_mouse_y_to_gui(0);
+
+if device_mouse_check_button_released(0,mb_left)
+{
+    if guiX &gt; x - (id.sprite_width / 2) &amp;&amp; guiX &lt; x + (id.sprite_width / 2) &amp;&amp; guiY &gt; y - (id.sprite_width / 2) &amp;&amp; guiY &lt; y + (id.sprite_width / 2)
+    {
+        alarm[0] = 1;
+    } 
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="8" enumb="64">
       <action>
         <libid>1</libid>

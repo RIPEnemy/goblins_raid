@@ -55,27 +55,6 @@ secondSkillCD = 1;
 
 //set char atributes in alarm[11]
 alarm[11] = 1;
-
-/*
-switch(global.playerClass)
-{
-    case 0: moveSpd = global.archerSpd * b_spd; 
-            attackSpd = global.archerASPD * b_aspd; 
-            fristSckillCD = room_speed * 3; 
-            secondSkillCD = room_speed * 10; 
-            break;
-    case 1: moveSpd = global.mageSpd * b_speed; 
-            attackSpd = global.mageASPD * b_aspd; ;
-            fristSckillCD = room_speed * 3; 
-            secondSkillCD = room_speed * 10;  
-            break;
-    case 2: moveSpd = global.builderSpd * b_spd;; 
-            attackSpd = global.builderASPD * b_aspd; ; 
-            fristSckillCD = room_speed * 3; 
-            secondSkillCD = room_speed * 10; 
-            break;
-}
-*/
 </string>
           </argument>
         </arguments>
@@ -126,21 +105,88 @@ switch(global.playerClass)
     case 0: 
             moveSpd = global.archerSpd * b_speed; 
             attackSpd = global.archerASPD * b_aspd; 
-            fristSckillCD = room_speed * 3;
-            secondSkillCD = room_speed * 10; 
             break;
     case 1: 
             moveSpd = global.mageSpd * b_speed; 
             attackSpd = global.mageASPD * b_aspd; ;
-            fristSckillCD = room_speed * 3; 
-            secondSkillCD = room_speed * 10;  
             break;
     case 2: 
             moveSpd = global.builderSpd * b_speed;; 
             attackSpd = global.builderASPD * b_aspd;
-            fristSckillCD = room_speed * 3; 
-            secondSkillCD = room_speed * 10; 
             break;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if buffTime &gt; 1
+{
+    buffTime -= 1;
+    alarm[4] = room_speed;
+}
+else
+{
+    //очищаем все эффекты
+    alarm[11] = 1;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="3">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>//skillPapa либо "skill", либо "superSkill"
+if skillPapa = "skill"
+{
+    switch(object_get_name(object_index))
+    {
+        case "archerObj": archerSkill_1(); break;
+        case "mageObj": mageSkill_1(); break;
+        case "builder": builderSkill_1(); break;
+    }
+}
+else
+{
+    switch(object_get_name(object_index))
+    {
+        case "archerObj": archerSkill_2(); break;
+        case "mageObj": mageSkill_2(); break;
+        case "builder": builderSkill_2(); break;
+    }
 }
 </string>
           </argument>

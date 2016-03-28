@@ -120,6 +120,49 @@ if device_mouse_check_button_released(0,mb_left)
     case "chooseMageBtnObj": draw_sprite(menuBigBtnSpr,0,x,y); break;
     case "chooseBuilderBtnObj": draw_sprite(menuBigBtnSpr,0,x,y); break;
     case "pauseObj": draw_sprite(menuBtnSpr,0,x,y); break;
+    case "skillButton":
+                        if global.SP_now &lt; 64
+                        {
+                            status = 0;
+                        }
+                        else
+                        {
+                            status = 1;
+                        }
+                        
+                        if status = 0
+                        {
+                            draw_sprite(skillSpr,0,x,y);
+                        } 
+                        else
+                        {
+                            draw_sprite(skillSpr,1,x,y);
+                        }
+                        
+                        drawText(CambriaBold14,c_black,fa_center,fa_center,x + (sprite_get_width(skillSpr) / 2),y + (sprite_get_height(skillSpr) / 2),"skill"); 
+                        break;
+                        
+    case "superSkillButton": 
+                            if global.SP_now &lt; 160
+                            {
+                                status = 0;
+                            }
+                            else
+                            {
+                                status = 1;
+                            }
+                            
+                            if status = 0
+                            {
+                                draw_sprite(superSkillSpr,0,x,y);
+                            } 
+                            else
+                            {
+                                draw_sprite(superSkillSpr,1,x,y);
+                            }
+                            
+                            drawText(CambriaBold14,c_black,fa_center,fa_center,x + (sprite_get_width(superSkillSpr) / 2),y + (sprite_get_height(superSkillSpr) / 2),"superskill");
+                            break;
 }
 </string>
           </argument>

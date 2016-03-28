@@ -139,6 +139,14 @@
     <script>scripts\takeDamage.gml</script>
     <script>scripts\goblinSpawn.gml</script>
     <script>scripts\moveToFinish.gml</script>
+    <scripts name="skills">
+      <script>scripts\archerSkill_1.gml</script>
+      <script>scripts\archerSkill_2.gml</script>
+      <script>scripts\mageSkill_1.gml</script>
+      <script>scripts\mageSkill_2.gml</script>
+      <script>scripts\builderSkill_1.gml</script>
+      <script>scripts\builderSkill_2.gml</script>
+    </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\CambriaBold40</font>
@@ -154,9 +162,6 @@
         <object>objects\mainMenuController</object>
         <object>objects\chooseRoomController</object>
         <object>objects\playRoomController</object>
-        <object>objects\skillButtonParent</object>
-        <object>objects\skillButton</object>
-        <object>objects\superSkillButton</object>
       </objects>
     </objects>
     <objects name="Menu">
@@ -170,6 +175,8 @@
       <object>objects\chooseMageBtnObj</object>
       <object>objects\chooseBuilderBtnObj</object>
       <object>objects\pauseObj</object>
+      <object>objects\skillButton</object>
+      <object>objects\superSkillButton</object>
     </objects>
     <objects name="Player">
       <object>objects\playerParent</object>
