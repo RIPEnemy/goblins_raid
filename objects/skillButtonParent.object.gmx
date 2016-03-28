@@ -25,68 +25,20 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>type = "buff";
+            <string>type = "button";
 
-spd = 2.5;
-
-y_finish = playerParent.y;
+/*
+status
+0 = disable
+1 = active
+*/
+status = 0;
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="1" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>effect_create_above(ef_smokeup,x,y,0,c_purple);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="3" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>y += spd;
-
-if y &gt; y_finish
-{
-    instance_destroy();
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="playerParent">
+    <event eventtype="8" enumb="64">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -105,20 +57,33 @@ if y &gt; y_finish
             <kind>1</kind>
             <string>switch(object_get_name(object_index))
 {
-    case "buffAtkSpeed": getBuff(0); break;
-    case "buffMFire": getBuff(1); break;
-    case "buffDamage": getBuff(2); break;
-    case "buffLife":
-                    if global.playLives &lt; 4
-                    {
-                        global.playLives += 1;
-                        buffDesc = instance_create(playerParent.x,playerParent.y + 42,buffEffect);
-                        buffDesc.buffName = "life bonus";
-                    }
-                    break;
+    case "skillButton": 
+                        if global.SP_now &gt;= 64
+                        {
+                            status = 1
+                        }
+                        else
+                        {
+                            status = 0
+                        }
+                        
+                        draw_sprite(skillSpr,status,x,y);
+                        drawText(CambriaBold14,c_black,fa_center,fa_center,x + (sprite_get_width(skillSpr) / 2),y + (sprite_get_height(skillSpr) / 2),"skill"); 
+                        break;
+    case "superSkillButton":
+                            if global.SP_now &gt;= 160
+                            {
+                                status = 1
+                            }
+                            else
+                            {
+                                status = 0
+                            }
+                            
+                            draw_sprite(superSkillSpr,status,x,y);
+                            drawText(CambriaBold14,c_black,fa_center,fa_center,x + (sprite_get_width(superSkillSpr) / 2),y + (sprite_get_height(superSkillSpr) / 2),"superskill");
+                            break;
 }
-
-instance_destroy();
 </string>
           </argument>
         </arguments>

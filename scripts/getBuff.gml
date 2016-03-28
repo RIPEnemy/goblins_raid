@@ -37,6 +37,8 @@ if buffsAmount < 3
                     else
                     {
                         global.playScore += 100;
+                        buffDesc = instance_create(playerParent.x,playerParent.y + 42,buffEffect);
+                        buffDesc.buffName = "point bonus";
                     }
                     break;
             case 2: 
@@ -49,6 +51,8 @@ if buffsAmount < 3
                     else
                     {
                         global.playScore += 100;
+                        buffDesc = instance_create(playerParent.x,playerParent.y + 42,buffEffect);
+                        buffDesc.buffName = "point bonus";
                     }
                     break;
         }
@@ -58,4 +62,6 @@ if buffsAmount < 3
 else
 {
     global.playScore += 100;
+    buffDesc = instance_create(playerParent.x,playerParent.y + 42,buffEffect);
+    buffDesc.buffName = "point bonus";
 }

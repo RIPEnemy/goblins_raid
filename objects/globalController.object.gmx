@@ -123,6 +123,9 @@ ini_close();
 global.playScore = 0;
 global.playerClass = 0;
 
+global.SP_now = 0;
+global.SP_max = 160;
+
 room_goto(mainMenu_room);
 </string>
           </argument>

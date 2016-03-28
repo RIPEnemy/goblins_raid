@@ -113,6 +113,12 @@ else
           <argument>
             <kind>1</kind>
             <string>takeDamage(uniqueGoblinObj,20);
+
+if global.SP_now &lt; global.SP_max
+{
+    global.SP_now += 1;
+}
+
 instance_destroy();
 </string>
           </argument>
@@ -137,6 +143,12 @@ instance_destroy();
           <argument>
             <kind>1</kind>
             <string>takeDamage(rareGoblinObj,10);
+
+if global.SP_now &lt; global.SP_max
+{
+    global.SP_now += 1;
+}
+
 instance_destroy();
 </string>
           </argument>
@@ -161,6 +173,12 @@ instance_destroy();
           <argument>
             <kind>1</kind>
             <string>takeDamage(uncomGoblinObj,5);
+
+if global.SP_now &lt; global.SP_max
+{
+    global.SP_now += 1;
+}
+
 instance_destroy();
 </string>
           </argument>
@@ -185,6 +203,12 @@ instance_destroy();
           <argument>
             <kind>1</kind>
             <string>takeDamage(comGoblinObj,2);
+
+if global.SP_now &lt; global.SP_max
+{
+    global.SP_now += 1;
+}
+
 instance_destroy();
 </string>
           </argument>

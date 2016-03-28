@@ -42,8 +42,7 @@
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
-    <sprite>sprites\bloodSpr</sprite>
-    <sprites name="Menu Sprites">
+    <sprites name="UI/HUD Sprites">
       <sprite>sprites\musicSpr</sprite>
       <sprite>sprites\soundSpr</sprite>
       <sprite>sprites\randomSpr</sprite>
@@ -53,19 +52,28 @@
       <sprite>sprites\menuArwSpr</sprite>
       <sprite>sprites\menuBtnSpr</sprite>
       <sprite>sprites\menuBigBtnSpr</sprite>
-      <sprites name="Empty Buttons">
-        <sprite>sprites\playBtnSpr_empty</sprite>
-        <sprite>sprites\menuBtnSpr_empty</sprite>
-      </sprites>
       <sprite>sprites\scoreSpr</sprite>
       <sprite>sprites\liveSpr</sprite>
       <sprite>sprites\numberSpr</sprite>
       <sprite>sprites\attackBeginSpr</sprite>
       <sprite>sprites\waveDestroySpr</sprite>
-      <sprite>sprites\waveBarBGSpr</sprite>
-      <sprite>sprites\waveBarBorderSpr</sprite>
-      <sprite>sprites\waveBarInnerSpr</sprite>
-      <sprite>sprites\backBarSpr</sprite>
+      <sprites name="Empty Buttons">
+        <sprite>sprites\playBtnSpr_empty</sprite>
+        <sprite>sprites\menuBtnSpr_empty</sprite>
+      </sprites>
+      <sprites name="Wave bar">
+        <sprite>sprites\backBarSpr</sprite>
+        <sprite>sprites\waveBarBGSpr</sprite>
+        <sprite>sprites\waveBarBorderSpr</sprite>
+        <sprite>sprites\waveBarInnerSpr</sprite>
+      </sprites>
+      <sprites name="Skill bar">
+        <sprite>sprites\skillBarBGSpr</sprite>
+        <sprite>sprites\skillBarBorderSpr</sprite>
+        <sprite>sprites\skillBarInnerSpr</sprite>
+        <sprite>sprites\skillSpr</sprite>
+        <sprite>sprites\superSkillSpr</sprite>
+      </sprites>
     </sprites>
     <sprites name="Player Sprites">
       <sprite>sprites\archerSpr</sprite>
@@ -89,6 +97,7 @@
       <sprite>sprites\comGoblinBulletSpr</sprite>
     </sprites>
     <sprites name="Map Sprites">
+      <sprite>sprites\bloodSpr</sprite>
       <sprite>sprites\wallRightSpr</sprite>
       <sprite>sprites\wallMiddleSpr</sprite>
       <sprite>sprites\wallLeftSpr</sprite>
@@ -117,6 +126,10 @@
       <script>scripts\drawString.gml</script>
       <script>scripts\roomPort.gml</script>
     </scripts>
+    <scripts name="buffs">
+      <script>scripts\buffBonus.gml</script>
+      <script>scripts\getBuff.gml</script>
+    </scripts>
     <script>scripts\changeStatus.gml</script>
     <script>scripts\destroyAllInst.gml</script>
     <script>scripts\collisionTarget.gml</script>
@@ -126,11 +139,6 @@
     <script>scripts\takeDamage.gml</script>
     <script>scripts\goblinSpawn.gml</script>
     <script>scripts\moveToFinish.gml</script>
-    <scripts name="buffs">
-      <script>scripts\buffBonus.gml</script>
-      <script>scripts\getBuff.gml</script>
-      <script>scripts\buffReplace.gml</script>
-    </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\CambriaBold40</font>
@@ -146,6 +154,9 @@
         <object>objects\mainMenuController</object>
         <object>objects\chooseRoomController</object>
         <object>objects\playRoomController</object>
+        <object>objects\skillButtonParent</object>
+        <object>objects\skillButton</object>
+        <object>objects\superSkillButton</object>
       </objects>
     </objects>
     <objects name="Menu">
@@ -193,6 +204,7 @@
       </objects>
       <object>objects\bloodObj</object>
       <objects name="buffs">
+        <object>objects\buffEffect</object>
         <object>objects\buffParent</object>
         <object>objects\buffAtkSpeed</object>
         <object>objects\buffMFire</object>

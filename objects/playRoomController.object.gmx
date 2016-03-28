@@ -8,6 +8,32 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>type = "controller";
+
+instance_create(txtX - 167,txtY - 517,superSkillButton);
+instance_create(txtX - 135,txtY - 364,skillButton);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="2" enumb="11">
       <action>
         <libid>1</libid>
@@ -342,9 +368,7 @@ if global.playScore &gt; global.topScore
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>type = "controller";
-
-randomize();
+            <string>randomize();
 
 //для игрока
 playerX = view_wview / 2;
@@ -403,6 +427,7 @@ alarm[0] = room_speed * waveTimeout / 3;
 
 global.playScore = 0;
 global.playLives = global.lives;
+global.SP_now = 0;
 </string>
           </argument>
         </arguments>
@@ -425,7 +450,8 @@ global.playLives = global.lives;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if timeLeft = 0 
+            <string>//draw countdown
+if timeLeft = 0 
 {
     draw_sprite(attackBeginSpr,0, txtX / 2, txtY / 2 - 50);
 }
@@ -434,51 +460,74 @@ if waveCountdown = true
 {
     draw_sprite(numberSpr,timeLeft - 1, txtX / 2, txtY / 2 - 50);
 }
-/*
-else
-{
-    if waveCompleate = false
-    {
-    }
-}
-*/
-
-//drawText(CambriaBold36,c_white,fa_left,fa_center,txtX - 240, 140,"wave");
-
-draw_sprite(backBarSpr,0,81,57);
-draw_sprite(waveBarBGSpr,0,82,54);
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>//draw wave bar
+draw_sprite(backBarSpr,0,81,62);
+draw_sprite(waveBarBGSpr,0,82,75);
 
     if global.liveGoblins &gt; 0
     {
-        draw_sprite_ext(waveBarInnerSpr,0,90,58,1 - (global.liveGoblins / initGoblins),1,0,c_white,1);
+        draw_sprite_ext(waveBarInnerSpr,0,93,75,1 - (global.liveGoblins / initGoblins),1,0,c_white,1);
     }
     else if waveNumber &gt;= 1
     {
-        draw_sprite(waveBarInnerSpr,0,90,58);
+        draw_sprite(waveBarInnerSpr,0,93,75);
     }
     
-draw_sprite(waveBarBorderSpr,0,81,54);
-drawText(CambriaBold22,c_black,fa_left,fa_center,131,39,"wave");
-
-    /*
-    if waveNumber &lt; 1
-    {
-        drawString(CambriaBold36,c_white,fa_left,fa_center,txtX - 80, 140,1);
-    }
-    else
-    {
-        drawString(CambriaBold36,c_white,fa_left,fa_center,txtX - 80, 140,waveNumber);
-    }
-    */
+draw_sprite(waveBarBorderSpr,0,81,72);
+drawText(CambriaBold22,c_black,fa_left,fa_center,108,51,"wave");
     
 if waveNumber &lt; 1
 {
-    drawString(CambriaBold22,c_black,fa_left,fa_center,234,39,1);
+    drawString(CambriaBold22,c_black,fa_left,fa_center,211,51,1);
 }
 else
 {
-    drawString(CambriaBold22,c_black,fa_left,fa_center,234,39,waveNumber);
+    drawString(CambriaBold22,c_black,fa_left,fa_center,211,51,waveNumber);
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>//draw skill bar
+draw_sprite(skillBarBGSpr,0,txtX - 73,txtY - 481);
+draw_sprite_ext(skillBarInnerSpr,0,txtX - 50,txtY - 257,1,global.SP_now / global.SP_max,0,c_white,1);
+draw_sprite(skillBarBorderSpr,0,txtX - 77,txtY - 483);
 </string>
           </argument>
         </arguments>
