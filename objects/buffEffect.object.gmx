@@ -25,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>spd = 1.2;
+            <string>type = "text";
+
+spd = 1.2;
 alarm[0] = room_speed;
 </string>
           </argument>
