@@ -52,6 +52,7 @@ attackSpd = 1;
 fristSckillCD = 1;
 secondSkillCD = 1;
 
+global.y_finish = y;
 
 //set char atributes in alarm[11]
 alarm[11] = 1;
