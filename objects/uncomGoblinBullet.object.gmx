@@ -50,7 +50,7 @@
             <kind>1</kind>
             <string>y += 8;
 
-if y &gt; view_yview
+if y &gt; view_hview
 {
     instance_destroy();   
 }

@@ -79,8 +79,6 @@ instance_destroy();
             <string>repeat (uniqueGoblinObj.hp) takeDamage(uniqueGoblinObj,5,1);
 img = 0;
 alarm[0] = deathTime;
-global.SP_now += 1;
-
 </string>
           </argument>
         </arguments>
@@ -106,9 +104,6 @@ global.SP_now += 1;
             <string>repeat (rareGoblinObj.hp) takeDamage(rareGoblinObj,12,1);
 img = 0;
 alarm[0] = deathTime;
-global.SP_now += 1; 
-
-
 </string>
           </argument>
         </arguments>
@@ -134,7 +129,6 @@ global.SP_now += 1;
             <string>repeat (uncomGoblinObj.hp) takeDamage(uncomGoblinObj,5,1);
 img = 0;
 alarm[0] = deathTime;
-global.SP_now += 1;
 </string>
           </argument>
         </arguments>
@@ -160,7 +154,6 @@ global.SP_now += 1;
             <string>takeDamage(comGoblinObj,1,1);
 img = 0;
 alarm[0] = deathTime;
-global.SP_now += 1;
 </string>
           </argument>
         </arguments>

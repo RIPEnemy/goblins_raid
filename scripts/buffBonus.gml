@@ -5,7 +5,7 @@ switch(argument0)
 {
     case 0: 
             playerParent.b_aspd += aspd_bonus; 
-            alarm[11] = 1;
+            playerParent.alarm[11] = 1;
             buffDesc = instance_create(playerParent.x,playerParent.y + 42,buffEffect);
             buffDesc.buffName = "speed bonus";
             break;

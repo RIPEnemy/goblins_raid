@@ -152,6 +152,7 @@
       <script>scripts\builderSkill_1.gml</script>
       <script>scripts\builderSkill_2.gml</script>
     </scripts>
+    <script>scripts\getSP.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\CambriaBold40</font>

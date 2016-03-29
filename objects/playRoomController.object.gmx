@@ -165,15 +165,7 @@ waveCountdown = true;
             <kind>1</kind>
             <string>if waveGoblins &gt; 0
 {
-    randomX = round(random(view_wview));
-        if randomX &lt; spawnBorder
-        {
-            randomX = spawnBorder;
-        }
-            if randomX &gt; view_wview - spawnBorder
-            {
-                randomX = view_wview - spawnBorder
-            }
+    randomX = spawnBorder + round(random(view_wview - (spawnBorder * 2)));
             
     if waveGoblins = initGoblins
     {
@@ -197,15 +189,15 @@ waveCountdown = true;
         0 - шанс создания rare
         1 - шанс создания unique
         */
-        case 1: goblinSpawn(80,14,0,6); break;
+        case 1: goblinSpawn(84,15,0,1); break;
         case 2:
                 if waveNumber &gt;= 6 
                 {
-                    goblinSpawn(62,22,10,6);
+                    goblinSpawn(60,22,16,2);
                 }
                 else
                 {
-                    goblinSpawn(64,30,0,6);
+                    goblinSpawn(66,32,0,2);
                 }
                 
                 break;
@@ -214,20 +206,20 @@ waveCountdown = true;
                 {
                     if waveNumber &lt; 8
                     {
-                        goblinSpawn(62,24,8,6);
+                        goblinSpawn(63,25,9,3);
                     }
                         if waveNumber &gt;= 8 &amp;&amp; waveNumber &lt;= 11
                         {
-                            goblinSpawn(40,35,20,6);
+                            goblinSpawn(41,36,21,3);
                         }
                             if waveNumber &gt; 11
                             {
-                                goblinSpawn(38,28,26,6);
+                                goblinSpawn(39,30,26,3);
                             }
                 }
                 else
                 {
-                    goblinSpawn(61,32,0,6);
+                    goblinSpawn(62,34,0,3);
                 }
                 
                 break;
@@ -433,19 +425,6 @@ countRandom = 2 + round(random(3));
 G2 = waveGoblins;
 initGoblins = waveGoblins;
 global.liveGoblins = initGoblins;
-
-ini_open("glRes.ini")
-{
-    global.comSPD = ini_read_real("Goblins","comSPD",1);
-    global.comHP = ini_read_real("Goblins","comHP",1);
-    global.uncomSPD = ini_read_real("Goblins","uncomSPD",1);
-    global.uncomHP = ini_read_real("Goblins","uncomHP",1);
-    global.rareSPD = ini_read_real("Goblins","rareSPD",1);
-    global.rareHP = ini_read_real("Goblins","rareHP",1);
-    global.uniqueSPD = ini_read_real("Goblins","uniqueSPD",1);
-    global.uniqueHP = ini_read_real("Goblins","uniqueHP",1);
-}
-ini_close();
 
 /*
 Структура таймеров волн

@@ -142,6 +142,15 @@ ini_open("glRes.ini");
     
     global.soundStatus = ini_read_real("Option","sound",0);
     global.musicStatus = ini_read_real("Option","music",0);
+    
+    global.comSPD = ini_read_real("Goblins","comSPD",1);
+    global.comHP = ini_read_real("Goblins","comHP",1);
+    global.uncomSPD = ini_read_real("Goblins","uncomSPD",1);
+    global.uncomHP = ini_read_real("Goblins","uncomHP",1);
+    global.rareSPD = ini_read_real("Goblins","rareSPD",1);
+    global.rareHP = ini_read_real("Goblins","rareHP",1);
+    global.uniqueSPD = ini_read_real("Goblins","uniqueSPD",1);
+    global.uniqueHP = ini_read_real("Goblins","uniqueHP",1);
 }
 ini_close();
 

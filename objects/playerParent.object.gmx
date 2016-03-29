@@ -342,16 +342,16 @@ else
                         fire = false;
                         break;
                 case 2: 
-                        bull1 = instance_create(x - 35,y - 17,bulletObj);
-                        bull2 = instance_create(x - 22,y - 30,bulletObj);
+                        bull1 = instance_create(x - 35,y - 30,bulletObj);
+                        bull2 = instance_create(x - 22,y - 17,bulletObj);
                         bull1.papa = playerParent;
                         bull2.papa = playerParent;
                         alarm[0] = room_speed * attackSpd; 
                         fire = false;
                         break;
                 case 3:
-                        bull1 = instance_create(x - 35,y - 17,bulletObj);
-                        bull2 = instance_create(x - 22,y - 30,bulletObj);
+                        bull1 = instance_create(x - 35,y - 30,bulletObj);
+                        bull2 = instance_create(x - 22,y - 17,bulletObj);
                         bull3 = instance_create(x - 48,y - 30,bulletObj);
                         bull1.papa = playerParent;
                         bull2.papa = playerParent;
@@ -617,9 +617,9 @@ if buff[2] != -1
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if global.SP_now &gt;= 64 &amp;&amp; alarm[4] &lt; 1
+            <string>if global.SP_now &gt;= 60 &amp;&amp; alarm[4] &lt; 1
 {
-    global.SP_now -= 64;
+    global.SP_now -= 60;
     skillPapa = "skill";
     alarm[3] = 1;
 }
