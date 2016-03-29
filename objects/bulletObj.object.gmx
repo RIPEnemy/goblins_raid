@@ -28,10 +28,40 @@
             <string>type = "bullet";
 
 //set bullet atributes
-maxDistance = 400;
+alarm[11] = 1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="11">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>maxDistance = 400;
 spd = 20;
 
-y_start = playerParent.y
+if instance_exists(papa)
+{
+    y_start = papa.y
+}
+else
+{
+    y_start = y;
+}
 </string>
           </argument>
         </arguments>
@@ -112,11 +142,18 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>takeDamage(uniqueGoblinObj,20);
+            <string>takeDamage(uniqueGoblinObj,20,global.damage);
 
 if global.SP_now &lt; global.SP_max
 {
-    global.SP_now += 1;
+    if global.playerClass = 2
+    {
+        global.SP_now += 2;
+    }
+    else
+    {
+        global.SP_now += 1;
+    }
 }
 
 instance_destroy();
@@ -142,11 +179,18 @@ instance_destroy();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>takeDamage(rareGoblinObj,10);
+            <string>takeDamage(rareGoblinObj,12,global.damage);
 
 if global.SP_now &lt; global.SP_max
 {
-    global.SP_now += 1;
+    if global.playerClass = 2
+    {
+        global.SP_now += 2;
+    }
+    else
+    {
+        global.SP_now += 1;
+    }
 }
 
 instance_destroy();
@@ -172,11 +216,18 @@ instance_destroy();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>takeDamage(uncomGoblinObj,5);
+            <string>takeDamage(uncomGoblinObj,5,global.damage);
 
 if global.SP_now &lt; global.SP_max
 {
-    global.SP_now += 1;
+    if global.playerClass = 2
+    {
+        global.SP_now += 2;
+    }
+    else
+    {
+        global.SP_now += 1;
+    }
 }
 
 instance_destroy();
@@ -202,11 +253,18 @@ instance_destroy();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>takeDamage(comGoblinObj,2);
+            <string>takeDamage(comGoblinObj,2,global.damage);
 
 if global.SP_now &lt; global.SP_max
 {
-    global.SP_now += 1;
+    if global.playerClass = 2
+    {
+        global.SP_now += 2;
+    }
+    else
+    {
+        global.SP_now += 1;
+    }
 }
 
 instance_destroy();
@@ -240,11 +298,18 @@ instance_destroy();
 
 image_speed = 1;
 
-switch (global.playerClass)
+if papa = playerParent
 {
-    case 0: draw_sprite(archerBulletSpr,0,x,y); break;
-    case 1: draw_sprite(mageBulletSpr,-1,x,y); break;
-    case 2: draw_sprite(builderBulletSpr,-1,x,y); break;
+    switch (global.playerClass)
+    {
+        case 0: draw_sprite(archerBulletSpr,0,x,y); break;
+        case 1: draw_sprite(mageBulletSpr,-1,x,y); break;
+        case 2: draw_sprite(builderBulletSpr,-1,x,y); break;
+    }
+}
+else
+{
+    draw_sprite(archerBulletSpr,0,x,y);
 }
 </string>
           </argument>

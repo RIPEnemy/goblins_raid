@@ -52,23 +52,8 @@ a = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//instance_create(x,y,bloodObj);
+            <string>instance_create(x,y,bloodObj);
 global.liveGoblins -= 1;
-
-drop = 1 + round(random(99));
-
-if drop &lt;= 5
-{
-    a = round(random(3));
-
-    switch(a)
-    {
-        case 0: instance_create(x,y,buffSpeed); break;
-        case 1: instance_create(x,y,buffAtkSpeed); break;
-        case 2: instance_create(x,y,buffDamage); break;
-        case 3: instance_create(x,y,buffSkillCD); break;
-    }
-}
 </string>
           </argument>
         </arguments>

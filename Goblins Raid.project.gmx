@@ -89,6 +89,8 @@
         <sprite>sprites\superArrowSpr</sprite>
         <sprite>sprites\fireballSpr</sprite>
         <sprite>sprites\speedAuraSpr</sprite>
+        <sprite>sprites\trapSpr</sprite>
+        <sprite>sprites\towerSpr</sprite>
       </sprites>
     </sprites>
     <sprites name="Enemy Sprites">
@@ -191,6 +193,9 @@
         <object>objects\fireSpellParent</object>
         <object>objects\superArrowObj</object>
         <object>objects\speedAuraObj</object>
+        <object>objects\trapObj</object>
+        <object>objects\towerObj</object>
+        <object>objects\arrowObj</object>
       </objects>
     </objects>
     <objects name="Enemy">
@@ -218,8 +223,8 @@
       </objects>
       <object>objects\bloodObj</object>
       <objects name="buffs">
-        <object>objects\buffEffect</object>
         <object>objects\buffParent</object>
+        <object>objects\buffEffect</object>
         <object>objects\buffAtkSpeed</object>
         <object>objects\buffMFire</object>
         <object>objects\buffDamage</object>

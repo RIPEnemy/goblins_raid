@@ -1,9 +1,14 @@
-///takeDamage(enemy,scrore)
+///takeDamage(enemy,scrore,dmg)
 enemy = argument0;
+
+if argument2 != 1 || argument2 != global.damage
+{
+    argument2 = global.damage;
+}
 
 with(instance_nearest(x,y,enemy))
 {
-    hp -= global.damage;
+    hp -= argument2;
     instance_create(x,y - 10,bloodObj);
     
     if hp < 1

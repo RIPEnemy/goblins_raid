@@ -10,7 +10,7 @@ if global.playLives > 0
 {
     global.playLives -= 1;
     global.playScore -= 350;
-    playRoomController.alarm[11] = room_speed;
+    playRoomController.alarm[11] = room_speed / 5;
     instance_destroy();
 }
 else

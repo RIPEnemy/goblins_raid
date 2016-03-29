@@ -49,6 +49,11 @@
           <argument>
             <kind>1</kind>
             <string>y += 8;
+
+if y &gt; view_yview
+{
+    instance_destroy();   
+}
 </string>
           </argument>
         </arguments>

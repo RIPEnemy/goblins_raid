@@ -114,7 +114,7 @@ else
             <kind>1</kind>
             <string>switch(object_get_name(object_index))
 {
-    case "superArrowObj": repeat(3) takeDamage(uniqueGoblinObj,20); break;
+    case "superArrowObj": repeat(uniqueGoblinObj.hp) takeDamage(uniqueGoblinObj,20,global.damage); break;
 }
 </string>
           </argument>
@@ -140,7 +140,7 @@ else
             <kind>1</kind>
             <string>switch(object_get_name(object_index))
 {
-    case "superArrowObj": repeat(5) takeDamage(rareGoblinObj,12); break;
+    case "superArrowObj": repeat(5) takeDamage(rareGoblinObj,12,global.damage); break;
 }
 </string>
           </argument>
@@ -166,7 +166,7 @@ else
             <kind>1</kind>
             <string>switch(object_get_name(object_index))
 {
-    case "superArrowObj": repeat(2) takeDamage(uncomGoblinObj,5); break;
+    case "superArrowObj": repeat(uncomGoblinObj.hp) takeDamage(uncomGoblinObj,5,global.damage); break;
 }
 </string>
           </argument>
@@ -192,7 +192,7 @@ else
             <kind>1</kind>
             <string>switch(object_get_name(object_index))
 {
-    case "superArrowObj": repeat(1) takeDamage(comGoblinObj,2); break;
+    case "superArrowObj": repeat(comGoblinObj.hp) takeDamage(comGoblinObj,2,global.damage); break;
 }
 </string>
           </argument>

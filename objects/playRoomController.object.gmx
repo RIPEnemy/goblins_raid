@@ -197,15 +197,15 @@ waveCountdown = true;
         0 - шанс создания rare
         1 - шанс создания unique
         */
-        case 1: goblinSpawn(85,14,0,1); break;
+        case 1: goblinSpawn(80,14,0,6); break;
         case 2:
                 if waveNumber &gt;= 6 
                 {
-                    goblinSpawn(65,24,10,1);
+                    goblinSpawn(62,22,10,6);
                 }
                 else
                 {
-                    goblinSpawn(64,35,0,1);
+                    goblinSpawn(64,30,0,6);
                 }
                 
                 break;
@@ -214,20 +214,20 @@ waveCountdown = true;
                 {
                     if waveNumber &lt; 8
                     {
-                        goblinSpawn(65,24,10,1);
+                        goblinSpawn(62,24,8,6);
                     }
                         if waveNumber &gt;= 8 &amp;&amp; waveNumber &lt;= 11
                         {
-                            goblinSpawn(50,35,13,2);
+                            goblinSpawn(40,35,20,6);
                         }
                             if waveNumber &gt; 11
                             {
-                                goblinSpawn(44,30,18,8);
+                                goblinSpawn(38,28,26,6);
                             }
                 }
                 else
                 {
-                    goblinSpawn(64,35,0,1);
+                    goblinSpawn(61,32,0,6);
                 }
                 
                 break;

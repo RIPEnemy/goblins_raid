@@ -1,5 +1,5 @@
 ///getBuff(buffNumber);
-aspd_bonus = 0.1;
+aspd_bonus = 0.3;
 mfire_max = 3;
 mfire_bonus = 1;
 damage_max = 3;
