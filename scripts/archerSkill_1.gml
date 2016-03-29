@@ -5,4 +5,6 @@ with(playerParent)
     attackSpd = attackSpd * 0.7;
     buffTime = 10;
     alarm[4] = room_speed;
+    aura = instance_create(x,y,speedAuraObj);
+    aura.img = 0;
 }

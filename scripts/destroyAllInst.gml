@@ -1,7 +1,7 @@
 ///destroyAllInst(type)
 var i;
 
-for (i = 0; i < instance_count; i += 1)
+for (i = 0; i <= instance_count; i += 1)
 {
     forDestroy[i] = instance_id;
     

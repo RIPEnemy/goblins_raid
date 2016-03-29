@@ -80,13 +80,16 @@
       <sprite>sprites\archerBulletSpr</sprite>
       <sprite>sprites\mageSpr</sprite>
       <sprite>sprites\mageBulletSpr</sprite>
-      <sprite>sprites\fireballSpr</sprite>
       <sprite>sprites\builderSpr</sprite>
       <sprite>sprites\builderBulletSpr</sprite>
-      <sprite>sprites\blinkBtnSpr</sprite>
       <sprite>sprites\mageBigSpr</sprite>
       <sprite>sprites\archerBigSpr</sprite>
       <sprite>sprites\builderBigSpr</sprite>
+      <sprites name="Skills spr">
+        <sprite>sprites\superArrowSpr</sprite>
+        <sprite>sprites\fireballSpr</sprite>
+        <sprite>sprites\speedAuraSpr</sprite>
+      </sprites>
     </sprites>
     <sprites name="Enemy Sprites">
       <sprite>sprites\comGoblinSpr</sprite>
@@ -184,7 +187,11 @@
       <object>objects\mageObj</object>
       <object>objects\builderObj</object>
       <object>objects\bulletObj</object>
-      <object>objects\fireballObj</object>
+      <objects name="Skills obj">
+        <object>objects\fireSpellParent</object>
+        <object>objects\superArrowObj</object>
+        <object>objects\speedAuraObj</object>
+      </objects>
     </objects>
     <objects name="Enemy">
       <objects name="Goblin Parents">
