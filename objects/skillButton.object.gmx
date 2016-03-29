@@ -25,11 +25,14 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if status = 1 
+            <string>if instance_exists(playerParent)
 {
-    global.SP_now -= 64;
-    playerParent.skillPapa = "skill";
-    playerParent.alarm[3] = 1; 
+    if status = 1 &amp;&amp; global.SP_now &gt;= 64 &amp;&amp; playerParent.alarm[4] &lt; 1
+    {
+        global.SP_now -= 64;
+        playerParent.skillPapa = "skill";
+        playerParent.alarm[3] = 1; 
+    }
 }
 </string>
           </argument>

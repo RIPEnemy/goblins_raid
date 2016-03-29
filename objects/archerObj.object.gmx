@@ -8,7 +8,7 @@
   <parentName>playerParent</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="5" enumb="81">
+    <event eventtype="5" enumb="50">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -25,12 +25,42 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if global.SP_now &gt;= 64
+            <string>/*
+if global.SP_now &gt;= 160 &amp;&amp; alarm[4] &lt; 1
+{
+    global.SP_now -= 160;
+    archerSkill_2();
+} 
+*/
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="5" enumb="49">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/*
+if global.SP_now &gt;= 64 &amp;&amp; alarm[4] &lt; 1
 {
     global.SP_now -= 64;
-    playerParent.skillPapa = "skill";
-    playerParent.alarm[3] = 1;
+    archerSkill_1();
 } 
+*/
 </string>
           </argument>
         </arguments>

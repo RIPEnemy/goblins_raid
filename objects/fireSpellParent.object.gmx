@@ -90,16 +90,6 @@ else
 {
     instance_destroy();
 }
-
-target = instance_nearest(x,y,instance_id);
-
-if target.obj_type = "enemy"
-{
-    switch(object_get_name(object_index))
-    {
-        case "superArrowObj": repeat(5) takeDamage(object_get_name(target),1 + target.hp); break;
-    }
-}
 </string>
           </argument>
         </arguments>
@@ -122,10 +112,10 @@ if target.obj_type = "enemy"
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/*
-takeDamage(uniqueGoblinObj,20);
-takeDamage(uniqueGoblinObj,20);
-*/
+            <string>switch(object_get_name(object_index))
+{
+    case "superArrowObj": repeat(3) takeDamage(uniqueGoblinObj,20); break;
+}
 </string>
           </argument>
         </arguments>
@@ -148,11 +138,10 @@ takeDamage(uniqueGoblinObj,20);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/*
-takeDamage(rareGoblinObj,10);
-takeDamage(rareGoblinObj,10);
-takeDamage(rareGoblinObj,10);
-*/
+            <string>switch(object_get_name(object_index))
+{
+    case "superArrowObj": repeat(5) takeDamage(rareGoblinObj,12); break;
+}
 </string>
           </argument>
         </arguments>
@@ -175,12 +164,10 @@ takeDamage(rareGoblinObj,10);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/*
-switch(object_get_name(object_index))
+            <string>switch(object_get_name(object_index))
 {
-    case "superArrowObj": repeat(5) takeDamage(comGoblinObj,2); break;
+    case "superArrowObj": repeat(2) takeDamage(uncomGoblinObj,5); break;
 }
-*/
 </string>
           </argument>
         </arguments>
@@ -203,12 +190,10 @@ switch(object_get_name(object_index))
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/*
-switch(object_get_name(object_index))
+            <string>switch(object_get_name(object_index))
 {
-    case "superArrowObj": repeat(5) takeDamage(comGoblinObj,2); break;
+    case "superArrowObj": repeat(1) takeDamage(comGoblinObj,2); break;
 }
-*/
 </string>
           </argument>
         </arguments>

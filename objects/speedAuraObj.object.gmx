@@ -29,6 +29,7 @@
 
 spd = 0.9;
 angle = 0;
+img = 0;
 </string>
           </argument>
         </arguments>
@@ -51,12 +52,19 @@ angle = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>x = playerParent.x;
-y = playerParent.y;
-
-angle -= spd;
-
-if playerParent.alarm[4] &lt; 1
+            <string>if instance_exists(playerParent)
+{
+    x = playerParent.x;
+    y = playerParent.y;
+    
+    angle -= spd;
+    
+    if playerParent.alarm[4] &lt; 1
+    {
+        instance_destroy();
+    }
+}
+else
 {
     instance_destroy();
 }
