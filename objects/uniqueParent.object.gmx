@@ -29,6 +29,7 @@
 
 spd = global.uniqueSPD;
 hp = global.uniqueHP;
+canTakeDamage = true;
 
 //d -&gt; direction; 0 - left, 1 - right
 d = round(random(1));
@@ -69,6 +70,29 @@ switch(a)
     case 5: instance_create(x,y,buffMFire); break;
     case 6: instance_create(x,y,buffLife); break;
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>canTakeDamage = true;
 </string>
           </argument>
         </arguments>
@@ -116,6 +140,42 @@ if y &gt; y_finish
 {
     global.playScore -= 7;
     instance_destroy();
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="shieldObj">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if canTakeDamage
+{
+    effect_create_above(ef_ellipse,x,y,-0.2,c_purple);
+    hp -= shieldObj.dmg;
+    canTakeDamage = false;
+    alarm[1] = shieldObj.cd;
+    
+        
+    if hp &lt; 1
+    {
+        global.playScore += 20;
+        instance_destroy();
+    }
 }
 </string>
           </argument>

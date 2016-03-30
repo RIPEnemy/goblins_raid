@@ -27,8 +27,8 @@
             <kind>1</kind>
             <string>type = "controller";
 
-instance_create(txtX - 167,txtY - 517,superSkillButton);
-instance_create(txtX - 135,txtY - 364,skillButton);
+instance_create(txtX - 167,txtY - 513,superSkillButton);
+instance_create(txtX - 135,txtY - 380,skillButton);
 </string>
           </argument>
         </arguments>

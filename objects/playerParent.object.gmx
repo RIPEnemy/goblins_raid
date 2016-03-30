@@ -42,6 +42,9 @@ buff[0] = -1;
 buff[1] = -1;
 buff[2] = -1;
 
+immun = true;
+alarm[9] = room_speed;
+
 dir = 0;
 
 moveSpd = 1;
@@ -150,6 +153,29 @@ alarm[10] = room_speed / 5;
     counter += 1;
     alarm[10] = room_speed / 5;
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="9">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>immun = false;
 </string>
           </argument>
         </arguments>
@@ -390,7 +416,10 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>playerKill(comGoblinBullet);
+            <string>if immun = false
+{
+    playerKill(comGoblinBullet);
+}
 </string>
           </argument>
         </arguments>
@@ -413,7 +442,10 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>playerKill(uncomGoblinBullet);
+            <string>if immun = false
+{
+    playerKill(uncomGoblinBullet);
+}
 </string>
           </argument>
         </arguments>
@@ -436,7 +468,10 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>playerKill(uniqueGoblinObj);
+            <string>if immun = false
+{
+    playerKill(uniqueGoblinObj);
+}
 </string>
           </argument>
         </arguments>
@@ -459,7 +494,10 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>playerKill(rareGoblinObj);
+            <string>if immun = false
+{
+    playerKill(rareGoblinObj);
+}
 </string>
           </argument>
         </arguments>
@@ -482,7 +520,10 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>playerKill(uncomGoblinObj);
+            <string>if immun = false
+{
+    playerKill(uncomGoblinObj);
+}
 </string>
           </argument>
         </arguments>
@@ -505,7 +546,10 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>playerKill(comGoblinObj);
+            <string>if immun = false
+{
+    playerKill(comGoblinObj);
+}
 </string>
           </argument>
         </arguments>

@@ -91,6 +91,9 @@
         <sprite>sprites\speedAuraSpr</sprite>
         <sprite>sprites\trapSpr</sprite>
         <sprite>sprites\towerSpr</sprite>
+        <sprite>sprites\magicShieldSpr</sprite>
+        <sprite>sprites\iceShardSpr</sprite>
+        <sprite>sprites\iceShardControllerSpr</sprite>
       </sprites>
     </sprites>
     <sprites name="Enemy Sprites">
@@ -144,6 +147,7 @@
     <script>scripts\takeDamage.gml</script>
     <script>scripts\goblinSpawn.gml</script>
     <script>scripts\moveToFinish.gml</script>
+    <script>scripts\getSP.gml</script>
     <scripts name="skills">
       <script>scripts\archerSkill_1.gml</script>
       <script>scripts\archerSkill_2.gml</script>
@@ -152,7 +156,6 @@
       <script>scripts\builderSkill_1.gml</script>
       <script>scripts\builderSkill_2.gml</script>
     </scripts>
-    <script>scripts\getSP.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\CambriaBold40</font>
@@ -197,6 +200,9 @@
         <object>objects\trapObj</object>
         <object>objects\towerObj</object>
         <object>objects\arrowObj</object>
+        <object>objects\iceShardController</object>
+        <object>objects\iceShardObj</object>
+        <object>objects\shieldObj</object>
       </objects>
     </objects>
     <objects name="Enemy">
