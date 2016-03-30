@@ -27,8 +27,9 @@
             <kind>1</kind>
             <string>type = "enemy";
 
+waveNumber = playRoomController.waveNumber;
 spd = global.rareSPD;
-hp = global.rareHP;
+hp = global.rareHP + floor(sqrt(waveNumber / 2)) - 1;
 canTakeDamage = true;
 a = 0;
 </string>
@@ -168,8 +169,8 @@ if y &gt; y_finish
             <string>switch(hp)
 {
     case 18: a = 0; break;
-    case 12: a = 1; spd = global.rareSPD * 1.15; break;
-    case 6: a = 2; spd = global.rareSPD * 1.3; break;
+    case 12: a = 1; spd = global.rareSPD * 1.3; break;
+    case 6: a = 2; spd = global.rareSPD * 1.6; break;
 }
 
 draw_sprite(rareGoblinSpr,a,x,y);

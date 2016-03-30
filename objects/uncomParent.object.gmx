@@ -27,8 +27,9 @@
             <kind>1</kind>
             <string>type = "enemy";
 
+waveNumber = playRoomController.waveNumber;
 spd = global.uncomSPD;
-hp = global.uncomHP;
+hp = global.uncomHP + floor(sqrt(waveNumber / 2)) - 1;
 canTakeDamage = true;
 
 fire = false;
@@ -200,7 +201,7 @@ if fire = true &amp;&amp; hp &gt; 1
 else
 {
     a = 1;
-    spd = global.uncomSPD * 1.25;
+    spd = global.uncomSPD * 1.8;
 }
 
 draw_sprite(uncomGoblinSpr,a,x,y);

@@ -165,6 +165,11 @@ waveCountdown = true;
             <kind>1</kind>
             <string>if waveGoblins &gt; 0
 {
+    if instance_exists(playerParent)
+    {
+        maxGoblinsPerSecond = 1 + round(sqrt(waveNumber)) + playerParent.buffs;
+    }
+    
     randomX = spawnBorder + round(random(view_wview - (spawnBorder * 2)));
             
     if waveGoblins = initGoblins
@@ -189,40 +194,102 @@ waveCountdown = true;
         0 - шанс создания rare
         1 - шанс создания unique
         */
-        case 1: goblinSpawn(84,15,0,1); break;
-        case 2:
-                if waveNumber &gt;= 6 
+        case 1: 
+                if waveNumber &gt; 12
                 {
-                    goblinSpawn(60,22,16,2);
+                    goblinSpawn(34,33,32,1);
                 }
                 else
                 {
-                    goblinSpawn(66,32,0,2);
-                }
-                
-                break;
-        case 3: 
-                if waveNumber &gt;= 6
-                {
-                    if waveNumber &lt; 8
+                    if waveNumber &gt; 9
                     {
-                        goblinSpawn(63,25,9,3);
+                        goblinSpawn(39,38,22,1);
                     }
-                        if waveNumber &gt;= 8 &amp;&amp; waveNumber &lt;= 11
+                    else
+                    {
+                        if waveNumber &gt; 6
                         {
-                            goblinSpawn(41,36,21,3);
+                            goblinSpawn(47,38,14,1);
                         }
-                            if waveNumber &gt; 11
+                        else
+                        {
+                            if waveNumber &gt; 3
                             {
-                                goblinSpawn(39,30,26,3);
+                                goblinSpawn(55,36,8,1);
                             }
+                            else
+                            {
+                                goblinSpawn(80,19,0,1);
+                            }
+                        }
+                    }
+                }
+                
+                 break;
+        case 2:
+                if waveNumber &gt; 12
+                {
+                    goblinSpawn(22,34,42,2);
                 }
                 else
                 {
-                    goblinSpawn(62,34,0,3);
+                    if waveNumber &gt; 9
+                    {
+                        goblinSpawn(25,44,29,2);
+                    }
+                    else
+                    {
+                        if waveNumber &gt; 6
+                        {
+                            goblinSpawn(33,46,19,2);
+                        }
+                        else
+                        {
+                            if waveNumber &gt; 3
+                            {
+                                goblinSpawn(40,49,9,2);
+                            }
+                            else
+                            {
+                                goblinSpawn(78,20,0,2);
+                            }
+                        }
+                    }
                 }
                 
-                break;
+                 break;
+        case 3: 
+                if waveNumber &gt; 12
+                {
+                    goblinSpawn(21,23,53,3);
+                }
+                else
+                {
+                    if waveNumber &gt; 9
+                    {
+                        goblinSpawn(24,35,38,3);
+                    }
+                    else
+                    {
+                        if waveNumber &gt; 6
+                        {
+                            goblinSpawn(37,33,27,3);
+                        }
+                        else
+                        {
+                            if waveNumber &gt; 3
+                            {
+                                goblinSpawn(46,41,10,3);
+                            }
+                            else
+                            {
+                                goblinSpawn(75,22,0,3);
+                            }
+                        }
+                    }
+                }
+                
+                 break;
     }
 }
 else
@@ -265,14 +332,7 @@ else
             <string>if waveGoblins = 0
 {
     waveNumber += 1;
-        if waveNumber &lt; 6
-        {
-            waveGoblins = waveNumber * 10;
-        }
-        else
-        {
-            waveGoblins = 2 + round((waveNumber + 4) * sqrt(waveNumber * 5));
-        }
+    waveGoblins = 2 + round((waveNumber + 2) * sqrt(waveNumber * 5));
     initGoblins = waveGoblins;
     global.liveGoblins = initGoblins;
     wavePhase = 1;
@@ -419,7 +479,7 @@ waveCompleate = false;
 waveCountdown = false;
 
 spawnBorder = 240;
-maxGoblinsPerSecond = 8;
+maxGoblinsPerSecond = 1;
 countRandom = 2 + round(random(3));
 
 G2 = waveGoblins;

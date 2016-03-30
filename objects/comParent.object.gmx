@@ -27,8 +27,9 @@
             <kind>1</kind>
             <string>type = "enemy";
 
+waveNumber = playRoomController.waveNumber;
 spd = global.comSPD;
-hp = global.comHP;
+hp = global.comHP + floor(sqrt(waveNumber / 2)) - 1;
 canTakeDamage = true;
 fire = false;
 fireReload = room_speed * (8 + round(random(8)));
