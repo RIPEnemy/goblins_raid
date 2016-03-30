@@ -9,7 +9,11 @@ if argument2 != 1 || argument2 != global.damage
 with(instance_nearest(x,y,enemy))
 {
     hp -= argument2;
-    instance_create(x,y - 10,bloodObj);
+    
+    if hp > 0
+    {
+        instance_create(x,y - 10,bloodObj);
+    }
     
     if hp < 1
     {

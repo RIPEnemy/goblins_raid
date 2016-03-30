@@ -168,6 +168,7 @@ waveCountdown = true;
     if instance_exists(playerParent)
     {
         maxGoblinsPerSecond = 1 + round(sqrt(waveNumber)) + playerParent.buffs;
+        miniWaveTimeout = 1 + sqrt(waveNumber);
     }
     
     randomX = spawnBorder + round(random(view_wview - (spawnBorder * 2)));
